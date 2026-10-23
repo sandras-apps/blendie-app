@@ -20,6 +20,7 @@ Proprietaria: Sandra. Lei non è una sviluppatrice: spiegale ogni passo in modo 
 - `ingredients`: 27 schede. Campi: `id`, `name {it,en}`, `synonyms[]`, `inci[]`, `categories[]`, `drug` (true = farmaco), `what`, `percentages`, `howto`, `warning` (tutti `{it,en}`, possono essere vuoti: in quel caso non mostrare la sezione), `studies {it[],en[]}`, `sources [{title,url}]`, `latest {it,en}`. L'acido ialuronico ha in più `notAcid {it,en}`, da mostrare in evidenza.
 - `pairs`: abbinamenti con fonte. Ogni voce ha `a[]` e `b[]` (liste di id), `level`, `basis`, `advice {it,en}`, `sources[]`. Una voce vale per ogni combinazione tra un id di `a` e uno di `b`, in entrambi i sensi.
 - `myths`, `guides` (`inci`, `formats`), `disclaimer`.
+- `about` (testi di Info: cos'è Blendie, regole sulle fonti, nota su "Basato su", nota sui farmaci) e `privacy` (punti della pagina Privacy).
 
 ### Logica del confronto
 
@@ -39,11 +40,11 @@ Trova un ingrediente cercando nel nome IT e EN, nei sinonimi e nei nomi INCI. Se
 2. **Risultato**: il livello (cerchio colorato + icona + testo, mai solo il colore), il consiglio, la riga "Basato su", le fonti cliccabili e il disclaimer in piccolo. Bottone per salvare l'abbinamento nei Preferiti.
 3. **Ingredienti**: tutti gli ingredienti in **ordine alfabetico**, con il nome più diffuso nella lingua scelta. Lente di ricerca in alto e filtri per categoria (chip), es. "Barriera e idratazione", "Esfolianti (acidi)". I farmaci hanno un'etichetta "Farmaco".
 4. **Scheda ingrediente**: categorie, sinonimi e INCI, Cosa fa, Percentuali, Come usarlo, Attenzione, poi **"Gli studi" in una tendina chiusa** (`<details>`), fonti, "Studio più recente". Bottone "Controlla un abbinamento" (apre la Home con questo ingrediente già scelto) e bottone per salvarlo nei Preferiti. Per i farmaci: niente bottone di abbinamento, solo la nota di `levels.drug`.
-5. **I miei prodotti** (salvati sul dispositivo): l'utente scrive il nome di un prodotto (es. "Siero The Ordinary Niacinamide") e sceglie dalla lista quali ingredienti attivi contiene. Dalla scheda di un prodotto può toccare un suo ingrediente per confrontarlo con un altro.
+5. **I miei prodotti** (salvati sul dispositivo): l'utente scrive il nome di un prodotto (es. "Siero The Ordinary Niacinamide") e sceglie quali ingredienti attivi contiene, solo tra quelli della lista. Può modificare e cancellare i prodotti (con conferma prima di cancellare). Toccando un ingrediente del prodotto si apre Confronta con quell'ingrediente già scelto, e l'utente sceglie il secondo.
 6. **Preferiti** (salvati sul dispositivo): abbinamenti e singoli ingredienti salvati, anche quelli che l'utente non usa ancora.
 7. **Falsi miti**: una scheda per mito (cosa si dice, cosa è vero, fonti).
 8. **Guide**: "Come leggere l'INCI" e "I formati" (tabella).
-9. **Info**: cos'è Blendie, come funzionano i livelli, regole sulle fonti, disclaimer, privacy, lingua.
+9. **Info**: cos'è Blendie, come funzionano i livelli, regole sulle fonti, disclaimer, privacy, lingua. Tutti i testi sono in `data.json` (`about`, `levels`, `basis`, `disclaimer`, `privacy`).
 
 Navigazione: una barra in basso con Confronta, Ingredienti, I miei prodotti, Preferiti, Altro (Falsi miti, Guide, Info).
 
@@ -70,9 +71,9 @@ Semaforo (già in `data.json` → `levels`): colore pieno nel cerchio, sfondo te
 - Non vanno d'accordo: `#EE7F72` / `#FDE5E1` / `#A2392E`, icona X
 - Nessuna interazione nota: `#A98BD9` / `#EFE7FA` / `#5E4396`, icona "i"
 
-Font (Google Fonts): **Baloo 2** per i titoli, **Nunito** per il testo, con fallback di sistema. Angoli molto arrotondati (16-24px), ombre morbide e leggere, icone lineari.
+Font: **Baloo 2** per i titoli, **Nunito** per il testo, con fallback di sistema. I file dei font vanno **dentro l'app** (`assets/fonts/`), non caricati da Google Fonts: così funzionano offline e aprire l'app non manda dati a Google. Angoli molto arrotondati (16-24px), ombre morbide e leggere, icone lineari.
 
-Logo: un coccodrillo con fette di cetriolo sugli occhi e bigodini. Sandra caricherà il file in `assets/logo.png`: se non c'è ancora, usa un segnaposto e diglielo.
+Logo: un coccodrillo con fette di cetriolo sugli occhi e bigodini. Versione trasparente per il logo dentro l'app; versione con sfondo crema per le icone del telefono (su iPhone le icone trasparenti diventano nere), con margine per le icone Android che vengono ritagliate.
 
 Accessibilità: il risultato non deve mai dipendere solo dal colore (colore + icona + testo), contrasto leggibile, focus visibile, bottoni grandi abbastanza per il pollice.
 
@@ -89,11 +90,11 @@ GoatCounter, conteggio visite anonimo, come nelle altre app di Sandra. Chiedile 
 ## 9. Legale
 
 - Disclaimer (`data.json` → `disclaimer`) visibile in Info e in piccolo sotto ogni risultato.
-- Pagina Privacy semplice: nessun dato personale raccolto, nessun account, i dati salvati restano sul dispositivo, conteggio visite anonimo con GoatCounter.
+- Pagina Privacy: i testi sono in `data.json` → `privacy`.
 
 ## 10. Controllo dei dati
 
-Aggiungi uno script (es. `tools/check-data.js`, da lanciare con Node) che controlla `data.json`: ogni id negli abbinamenti esiste, nessun farmaco ha abbinamenti, ogni testo italiano ha la versione inglese, ogni categoria esiste, ogni scheda ha almeno una fonte.
+Aggiungi uno script (es. `tools/check-data.js`, da lanciare con Node) che controlla `data.json`: ogni id negli abbinamenti esiste, nessun farmaco ha abbinamenti, nessuna coppia compare in due voci di `pairs`, ogni testo italiano ha la versione inglese, ogni categoria esiste, ogni scheda ha almeno una fonte.
 
 ## 11. Come lavorare
 

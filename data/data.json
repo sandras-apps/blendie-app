@@ -2,51 +2,171 @@
   "version": "1.0",
   "updated": "2026-10-23",
   "levels": {
-    "green": { "it": "Vanno d'accordo", "en": "They get along", "icon": "check", "color": "#6FBF8E", "tint": "#E4F4EA", "text": "#2C6A47" },
-    "yellow": { "it": "Hanno bisogno dei loro spazi", "en": "They need some space", "icon": "clock", "color": "#F2A950", "tint": "#FDEFD9", "text": "#875315" },
-    "red": { "it": "Non vanno d'accordo", "en": "They don't get along", "icon": "x", "color": "#EE7F72", "tint": "#FDE5E1", "text": "#A2392E" },
+    "green": {
+      "it": "Vanno d'accordo",
+      "en": "They get along",
+      "icon": "check",
+      "color": "#6FBF8E",
+      "tint": "#E4F4EA",
+      "text": "#2C6A47"
+    },
+    "yellow": {
+      "it": "Hanno bisogno dei loro spazi",
+      "en": "They need some space",
+      "icon": "clock",
+      "color": "#F2A950",
+      "tint": "#FDEFD9",
+      "text": "#875315"
+    },
+    "red": {
+      "it": "Non vanno d'accordo",
+      "en": "They don't get along",
+      "icon": "x",
+      "color": "#EE7F72",
+      "tint": "#FDE5E1",
+      "text": "#A2392E"
+    },
     "unknown": {
-      "it": "Nessuna interazione nota", "en": "No known interaction", "icon": "info", "color": "#A98BD9", "tint": "#EFE7FA", "text": "#5E4396",
-      "note": { "it": "Non risultano problemi negli studi e nei pareri degli esperti.", "en": "No problems are reported in studies or expert opinion." }
+      "it": "Nessuna interazione nota",
+      "en": "No known interaction",
+      "icon": "info",
+      "color": "#A98BD9",
+      "tint": "#EFE7FA",
+      "text": "#5E4396",
+      "note": {
+        "it": "Non risultano problemi negli studi e nei pareri degli esperti.",
+        "en": "No problems are reported in studies or expert opinion."
+      }
     },
     "drug": {
-      "it": "Nessun abbinamento per i farmaci", "en": "No pairings for medicines",
-      "note": { "it": "Blendie non dà abbinamenti con i farmaci. Come usarli, e con cosa, lo decide il medico o il farmacista.", "en": "Blendie doesn't give pairings for medicines. How to use them, and with what, is for your doctor or pharmacist to decide." }
+      "it": "Nessun abbinamento per i farmaci",
+      "en": "No pairings for medicines",
+      "note": {
+        "it": "Blendie non dà abbinamenti con i farmaci. Come usarli, e con cosa, lo decide il medico o il farmacista.",
+        "en": "Blendie doesn't give pairings for medicines. How to use them, and with what, is for your doctor or pharmacist to decide."
+      }
     }
   },
   "basis": {
-    "studies": { "it": "Studi", "en": "Studies" },
-    "lab": { "it": "Studi di laboratorio", "en": "Lab studies" },
-    "experts": { "it": "Parere di esperti", "en": "Expert opinion" },
-    "authorities": { "it": "Autorità sanitarie", "en": "Health authorities" },
-    "studies_authorities": { "it": "Studi e autorità sanitarie", "en": "Studies and health authorities" }
+    "studies": {
+      "it": "Studi",
+      "en": "Studies"
+    },
+    "lab": {
+      "it": "Studi di laboratorio",
+      "en": "Lab studies"
+    },
+    "experts": {
+      "it": "Parere di esperti",
+      "en": "Expert opinion"
+    },
+    "authorities": {
+      "it": "Autorità sanitarie",
+      "en": "Health authorities"
+    },
+    "studies_authorities": {
+      "it": "Studi e autorità sanitarie",
+      "en": "Studies and health authorities"
+    }
   },
   "categories": [
-    { "id": "barrier", "it": "Barriera e idratazione", "en": "Barrier and hydration" },
-    { "id": "exfoliants", "it": "Esfolianti (acidi)", "en": "Exfoliants (acids)" },
-    { "id": "blemishes", "it": "Imperfezioni", "en": "Blemishes" },
-    { "id": "spots", "it": "Macchie", "en": "Dark spots" },
-    { "id": "redness", "it": "Rossori", "en": "Redness" },
-    { "id": "retinoids", "it": "Retinoidi", "en": "Retinoids" },
-    { "id": "antiaging", "it": "Anti-età", "en": "Anti-ageing" },
-    { "id": "retinoid_alt", "it": "Alternative ai retinoidi", "en": "Retinoid alternatives" },
-    { "id": "antioxidants", "it": "Antiossidanti", "en": "Antioxidants" },
-    { "id": "soothing", "it": "Lenitivi", "en": "Soothing" },
-    { "id": "sun", "it": "Protezione solare", "en": "Sun protection" },
-    { "id": "drugs", "it": "Farmaci (solo informazioni)", "en": "Medicines (information only)" }
+    {
+      "id": "barrier",
+      "it": "Barriera e idratazione",
+      "en": "Barrier and hydration"
+    },
+    {
+      "id": "exfoliants",
+      "it": "Esfolianti (acidi)",
+      "en": "Exfoliants (acids)"
+    },
+    {
+      "id": "blemishes",
+      "it": "Imperfezioni",
+      "en": "Blemishes"
+    },
+    {
+      "id": "spots",
+      "it": "Macchie",
+      "en": "Dark spots"
+    },
+    {
+      "id": "redness",
+      "it": "Rossori",
+      "en": "Redness"
+    },
+    {
+      "id": "retinoids",
+      "it": "Retinoidi",
+      "en": "Retinoids"
+    },
+    {
+      "id": "antiaging",
+      "it": "Anti-età",
+      "en": "Anti-ageing"
+    },
+    {
+      "id": "retinoid_alt",
+      "it": "Alternative ai retinoidi",
+      "en": "Retinoid alternatives"
+    },
+    {
+      "id": "antioxidants",
+      "it": "Antiossidanti",
+      "en": "Antioxidants"
+    },
+    {
+      "id": "soothing",
+      "it": "Lenitivi",
+      "en": "Soothing"
+    },
+    {
+      "id": "sun",
+      "it": "Protezione solare",
+      "en": "Sun protection"
+    },
+    {
+      "id": "drugs",
+      "it": "Farmaci (solo informazioni)",
+      "en": "Medicines (information only)"
+    }
   ],
   "groups": {
-    "retinoids": ["retinol", "retinal"],
-    "aha": ["glycolic", "lactic", "mandelic"],
-    "exfoliants_for_retinoids": ["glycolic", "lactic", "mandelic", "salicylic", "pha"]
+    "retinoids": [
+      "retinol",
+      "retinal"
+    ],
+    "aha": [
+      "glycolic",
+      "lactic",
+      "mandelic"
+    ],
+    "exfoliants_for_retinoids": [
+      "glycolic",
+      "lactic",
+      "mandelic",
+      "salicylic",
+      "pha"
+    ]
   },
   "ingredients": [
     {
       "id": "glycolic",
-      "name": { "it": "Acido glicolico", "en": "Glycolic acid" },
-      "synonyms": ["AHA", "alfa-idrossiacido", "alpha hydroxy acid"],
-      "inci": ["Glycolic Acid"],
-      "categories": ["exfoliants"],
+      "name": {
+        "it": "Acido glicolico",
+        "en": "Glycolic acid"
+      },
+      "synonyms": [
+        "AHA",
+        "alfa-idrossiacido",
+        "alpha hydroxy acid"
+      ],
+      "inci": [
+        "Glycolic Acid"
+      ],
+      "categories": [
+        "exfoliants"
+      ],
       "drug": false,
       "what": {
         "it": "Esfolia: stacca le cellule morte in superficie. Quanto esfolia dipende dalla concentrazione, dal pH e dagli altri ingredienti.",
@@ -65,18 +185,41 @@
         "en": "The most reported side effect is burning. More serious reactions mostly come from the products that exfoliate the most."
       },
       "studies": {
-        "it": ["Dopo 4 settimane di AHA, la pelle si arrossava al sole il 18% più facilmente e il danno alle cellule era circa il doppio. Una settimana dopo aver smesso, tutto era tornato normale."],
-        "en": ["After 4 weeks of AHAs, skin reddened in the sun 18% more easily and cell damage roughly doubled. One week after stopping, everything was back to normal."]
+        "it": [
+          "Dopo 4 settimane di AHA, la pelle si arrossava al sole il 18% più facilmente e il danno alle cellule era circa il doppio. Una settimana dopo aver smesso, tutto era tornato normale."
+        ],
+        "en": [
+          "After 4 weeks of AHAs, skin reddened in the sun 18% more easily and cell damage roughly doubled. One week after stopping, everything was back to normal."
+        ]
       },
-      "sources": [{ "title": "FDA — Alpha Hydroxy Acids", "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids" }],
-      "latest": { "it": "Dati FDA, segnalazioni fino al 2004", "en": "FDA data, reports up to 2004" }
+      "sources": [
+        {
+          "title": "FDA — Alpha Hydroxy Acids",
+          "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids"
+        }
+      ],
+      "latest": {
+        "it": "Dati FDA, segnalazioni fino al 2004",
+        "en": "FDA data, reports up to 2004"
+      }
     },
     {
       "id": "lactic",
-      "name": { "it": "Acido lattico", "en": "Lactic acid" },
-      "synonyms": ["AHA", "alfa-idrossiacido", "alpha hydroxy acid"],
-      "inci": ["Lactic Acid"],
-      "categories": ["exfoliants"],
+      "name": {
+        "it": "Acido lattico",
+        "en": "Lactic acid"
+      },
+      "synonyms": [
+        "AHA",
+        "alfa-idrossiacido",
+        "alpha hydroxy acid"
+      ],
+      "inci": [
+        "Lactic Acid"
+      ],
+      "categories": [
+        "exfoliants"
+      ],
       "drug": false,
       "what": {
         "it": "Esfolia come l'acido glicolico: stacca le cellule morte in superficie.",
@@ -90,17 +233,43 @@
         "it": "Rende la pelle più sensibile al sole. Servono protezione solare, vestiti protettivi e meno sole mentre lo usi e per una settimana dopo.",
         "en": "It makes skin more sensitive to the sun. Use sunscreen, protective clothing and less sun while you use it and for a week after."
       },
-      "warning": { "it": "Può dare bruciore, come gli altri AHA.", "en": "It can cause burning, like other AHAs." },
-      "studies": { "it": [], "en": [] },
-      "sources": [{ "title": "FDA — Alpha Hydroxy Acids", "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids" }],
-      "latest": { "it": "Dati FDA, segnalazioni fino al 2004", "en": "FDA data, reports up to 2004" }
+      "warning": {
+        "it": "Può dare bruciore, come gli altri AHA.",
+        "en": "It can cause burning, like other AHAs."
+      },
+      "studies": {
+        "it": [],
+        "en": []
+      },
+      "sources": [
+        {
+          "title": "FDA — Alpha Hydroxy Acids",
+          "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids"
+        }
+      ],
+      "latest": {
+        "it": "Dati FDA, segnalazioni fino al 2004",
+        "en": "FDA data, reports up to 2004"
+      }
     },
     {
       "id": "mandelic",
-      "name": { "it": "Acido mandelico", "en": "Mandelic acid" },
-      "synonyms": ["AHA", "alfa-idrossiacido", "alpha hydroxy acid"],
-      "inci": ["Mandelic Acid"],
-      "categories": ["exfoliants", "blemishes"],
+      "name": {
+        "it": "Acido mandelico",
+        "en": "Mandelic acid"
+      },
+      "synonyms": [
+        "AHA",
+        "alfa-idrossiacido",
+        "alpha hydroxy acid"
+      ],
+      "inci": [
+        "Mandelic Acid"
+      ],
+      "categories": [
+        "exfoliants",
+        "blemishes"
+      ],
       "drug": false,
       "what": {
         "it": "Esfolia. Nei peeling è più delicato del glicolico, con effetti più leggeri ma anche meno irritazione e recupero più veloce.",
@@ -110,24 +279,55 @@
         "it": "Gli studi riguardano peeling fatti da professionisti (per esempio al 45%). Sui prodotti da usare a casa gli studi sono pochi.",
         "en": "Studies are on professional peels (for example at 45%). There are few studies on products for home use."
       },
-      "howto": { "it": "Come gli altri AHA, serve protezione dal sole.", "en": "Like other AHAs, it needs sun protection." },
-      "warning": { "it": "Può irritare pelle e occhi.", "en": "It can irritate skin and eyes." },
+      "howto": {
+        "it": "Come gli altri AHA, serve protezione dal sole.",
+        "en": "Like other AHAs, it needs sun protection."
+      },
+      "warning": {
+        "it": "Può irritare pelle e occhi.",
+        "en": "It can irritate skin and eyes."
+      },
       "studies": {
-        "it": ["Acne: peeling al 45% utile quanto un peeling con acido salicilico al 30%, con molti meno effetti indesiderati (2020)"],
-        "en": ["Acne: a 45% peel worked as well as a 30% salicylic acid peel, with far fewer side effects (2020)"]
+        "it": [
+          "Acne: peeling al 45% utile quanto un peeling con acido salicilico al 30%, con molti meno effetti indesiderati (2020)"
+        ],
+        "en": [
+          "Acne: a 45% peel worked as well as a 30% salicylic acid peel, with far fewer side effects (2020)"
+        ]
       },
       "sources": [
-        { "title": "Medical News Today — mandelic acid", "url": "https://www.medicalnewstoday.com/articles/skin-care-mandelic-acid" },
-        { "title": "FDA — Alpha Hydroxy Acids", "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids" }
+        {
+          "title": "Medical News Today — mandelic acid",
+          "url": "https://www.medicalnewstoday.com/articles/skin-care-mandelic-acid"
+        },
+        {
+          "title": "FDA — Alpha Hydroxy Acids",
+          "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids"
+        }
       ],
-      "latest": { "it": "2020", "en": "2020" }
+      "latest": {
+        "it": "2020",
+        "en": "2020"
+      }
     },
     {
       "id": "salicylic",
-      "name": { "it": "Acido salicilico", "en": "Salicylic acid" },
-      "synonyms": ["BHA", "beta-idrossiacido", "beta hydroxy acid"],
-      "inci": ["Salicylic Acid"],
-      "categories": ["exfoliants", "blemishes"],
+      "name": {
+        "it": "Acido salicilico",
+        "en": "Salicylic acid"
+      },
+      "synonyms": [
+        "BHA",
+        "beta-idrossiacido",
+        "beta hydroxy acid"
+      ],
+      "inci": [
+        "Salicylic Acid"
+      ],
+      "categories": [
+        "exfoliants",
+        "blemishes"
+      ],
       "drug": false,
       "what": {
         "it": "Ammorbidisce la cheratina e aiuta a staccare la pelle secca e squamosa. Nell'acne rallenta il distacco delle cellule dentro i pori, così si intasano meno, e aiuta contro punti neri e punti bianchi. Curiosità: per un chimico non è un vero BHA, ma nella cosmetica si chiama così.",
@@ -145,20 +345,48 @@
         "it": "Un leggero pizzicore è comune, soprattutto sulla pelle rovinata. In gravidanza e allattamento serve il parere del medico, perché viene assorbito dalla pelle. Irrita gli occhi.",
         "en": "Mild stinging is common, especially on damaged skin. In pregnancy and breastfeeding ask your doctor, because it's absorbed through the skin. It irritates the eyes."
       },
-      "studies": { "it": [], "en": [] },
+      "studies": {
+        "it": [],
+        "en": []
+      },
       "sources": [
-        { "title": "DermNet — salicylic acid", "url": "https://dermnetnz.org/topics/salicylic-acid" },
-        { "title": "FDA — Beta Hydroxy Acids", "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/beta-hydroxy-acids" },
-        { "title": "SCCS opinion on salicylic acid (CIRS summary)", "url": "https://www.cirs-group.com/en/cosmetics/sccs-issued-final-opinion-on-salicylic-acid-children-exposure" }
+        {
+          "title": "DermNet — salicylic acid",
+          "url": "https://dermnetnz.org/topics/salicylic-acid"
+        },
+        {
+          "title": "FDA — Beta Hydroxy Acids",
+          "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/beta-hydroxy-acids"
+        },
+        {
+          "title": "SCCS opinion on salicylic acid (CIRS summary)",
+          "url": "https://www.cirs-group.com/en/cosmetics/sccs-issued-final-opinion-on-salicylic-acid-children-exposure"
+        }
       ],
-      "latest": { "it": "Parere scientifico UE (SCCS)", "en": "EU scientific opinion (SCCS)" }
+      "latest": {
+        "it": "Parere scientifico UE (SCCS)",
+        "en": "EU scientific opinion (SCCS)"
+      }
     },
     {
       "id": "pha",
-      "name": { "it": "PHA (gluconolattone)", "en": "PHA (gluconolactone)" },
-      "synonyms": ["poliidrossiacido", "polyhydroxy acid", "glucono-delta-lattone", "glucono-delta-lactone"],
-      "inci": ["Gluconolactone"],
-      "categories": ["exfoliants", "barrier"],
+      "name": {
+        "it": "PHA (gluconolattone)",
+        "en": "PHA (gluconolactone)"
+      },
+      "synonyms": [
+        "poliidrossiacido",
+        "polyhydroxy acid",
+        "glucono-delta-lattone",
+        "glucono-delta-lactone"
+      ],
+      "inci": [
+        "Gluconolactone"
+      ],
+      "categories": [
+        "exfoliants",
+        "barrier"
+      ],
       "drug": false,
       "what": {
         "it": "Esfolia come gli AHA, ma senza la stessa sensazione di irritazione. In più idrata, è antiossidante e aiuta la barriera della pelle.",
@@ -168,24 +396,56 @@
         "it": "Gli studi riguardano soprattutto peeling dal 10% al 30%, fatti da professionisti: 10% e 30% hanno dato risultati simili. Sui prodotti da usare a casa gli studi sono pochi.",
         "en": "Studies are mostly on professional peels from 10% to 30%: 10% and 30% gave similar results. There are few studies on products for home use."
       },
-      "howto": { "it": "", "en": "" },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "È descritto come non irritante, ma non ci sono studi specifici sulla pelle sensibile.",
         "en": "It's described as non-irritating, but there are no specific studies on sensitive skin."
       },
       "studies": {
-        "it": ["Peeling al 10% e al 30% su 16 donne: pelle più idratata, senza differenze tra le due concentrazioni (2021)", "Peeling al 10% e al 30% su 16 donne: meno sebo e barriera migliore, senza differenze tra le due concentrazioni (2023)"],
-        "en": ["10% and 30% peels in 16 women: more hydrated skin, no difference between the two concentrations (2021)", "10% and 30% peels in 16 women: less sebum and a better barrier, no difference between the two concentrations (2023)"]
+        "it": [
+          "Peeling al 10% e al 30% su 16 donne: pelle più idratata, senza differenze tra le due concentrazioni (2021)",
+          "Peeling al 10% e al 30% su 16 donne: meno sebo e barriera migliore, senza differenze tra le due concentrazioni (2023)"
+        ],
+        "en": [
+          "10% and 30% peels in 16 women: more hydrated skin, no difference between the two concentrations (2021)",
+          "10% and 30% peels in 16 women: less sebum and a better barrier, no difference between the two concentrations (2023)"
+        ]
       },
-      "sources": [{ "title": "Baumann 2024, MDedge Dermatology — Gluconolactone", "url": "https://mdedge.com/content/gluconolactone" }],
-      "latest": { "it": "2023", "en": "2023" }
+      "sources": [
+        {
+          "title": "Baumann 2024, MDedge Dermatology — Gluconolactone",
+          "url": "https://mdedge.com/content/gluconolactone"
+        }
+      ],
+      "latest": {
+        "it": "2023",
+        "en": "2023"
+      }
     },
     {
       "id": "niacinamide",
-      "name": { "it": "Niacinamide", "en": "Niacinamide" },
-      "synonyms": ["nicotinamide", "vitamina B3", "vitamin B3", "amide dell'acido nicotinico", "nicotinic acid amide"],
-      "inci": ["Niacinamide"],
-      "categories": ["barrier", "blemishes", "spots"],
+      "name": {
+        "it": "Niacinamide",
+        "en": "Niacinamide"
+      },
+      "synonyms": [
+        "nicotinamide",
+        "vitamina B3",
+        "vitamin B3",
+        "amide dell'acido nicotinico",
+        "nicotinic acid amide"
+      ],
+      "inci": [
+        "Niacinamide"
+      ],
+      "categories": [
+        "barrier",
+        "blemishes",
+        "spots"
+      ],
       "drug": false,
       "what": {
         "it": "Aiuta la barriera della pelle, riduce il sebo, schiarisce le macchie e migliora l'aspetto della pelle che invecchia. Non va confusa con la niacina (acido nicotinico), che è un'altra sostanza, e non è un BHA.",
@@ -199,23 +459,60 @@
         "it": "È ben tollerata. Se secca troppo la pelle, si può usare meno spesso: una volta al giorno o a giorni alterni.",
         "en": "It's well tolerated. If it dries your skin too much, use it less often: once a day or every other day."
       },
-      "warning": { "it": "Non è una protezione solare e non previene le scottature.", "en": "It isn't a sunscreen and doesn't prevent sunburn." },
+      "warning": {
+        "it": "Non è una protezione solare e non previene le scottature.",
+        "en": "It isn't a sunscreen and doesn't prevent sunburn."
+      },
       "studies": {
-        "it": ["Acne moderata: gel al 4% efficace quanto la clindamicina 1%", "Sebo: crema al 2% lo ha ridotto in 4-6 settimane", "Pelle che invecchia: 5% sul viso per 12 settimane, 4% sulle rughe delle palpebre", "Macchie: crema al 5% per 4 settimane"],
-        "en": ["Moderate acne: a 4% gel worked as well as 1% clindamycin", "Oil: a 2% cream reduced it in 4–6 weeks", "Ageing skin: 5% on the face for 12 weeks, 4% on eyelid wrinkles", "Dark spots: 5% cream for 4 weeks"]
+        "it": [
+          "Acne moderata: gel al 4% efficace quanto la clindamicina 1%",
+          "Sebo: crema al 2% lo ha ridotto in 4-6 settimane",
+          "Pelle che invecchia: 5% sul viso per 12 settimane, 4% sulle rughe delle palpebre",
+          "Macchie: crema al 5% per 4 settimane"
+        ],
+        "en": [
+          "Moderate acne: a 4% gel worked as well as 1% clindamycin",
+          "Oil: a 2% cream reduced it in 4–6 weeks",
+          "Ageing skin: 5% on the face for 12 weeks, 4% on eyelid wrinkles",
+          "Dark spots: 5% cream for 4 weeks"
+        ]
       },
       "sources": [
-        { "title": "DermNet — nicotinamide", "url": "https://dermnetnz.org/topics/nicotinamide" },
-        { "title": "Hakozaki et al. 2002, British Journal of Dermatology", "url": "https://academic.oup.com/bjd/article/147/1/20/6628642" }
+        {
+          "title": "DermNet — nicotinamide",
+          "url": "https://dermnetnz.org/topics/nicotinamide"
+        },
+        {
+          "title": "Hakozaki et al. 2002, British Journal of Dermatology",
+          "url": "https://academic.oup.com/bjd/article/147/1/20/6628642"
+        }
       ],
-      "latest": { "it": "2002", "en": "2002" }
+      "latest": {
+        "it": "2002",
+        "en": "2002"
+      }
     },
     {
       "id": "retinol",
-      "name": { "it": "Retinolo", "en": "Retinol" },
-      "synonyms": ["vitamina A", "vitamin A", "retinyl palmitate", "retinyl acetate"],
-      "inci": ["Retinol", "Retinyl Palmitate", "Retinyl Acetate"],
-      "categories": ["retinoids", "antiaging"],
+      "name": {
+        "it": "Retinolo",
+        "en": "Retinol"
+      },
+      "synonyms": [
+        "vitamina A",
+        "vitamin A",
+        "retinyl palmitate",
+        "retinyl acetate"
+      ],
+      "inci": [
+        "Retinol",
+        "Retinyl Palmitate",
+        "Retinyl Acetate"
+      ],
+      "categories": [
+        "retinoids",
+        "antiaging"
+      ],
       "drug": false,
       "what": {
         "it": "Nella pelle si trasforma, passo dopo passo, in acido retinoico, la forma attiva. Migliora rughe, macchie e rinnovamento della pelle. È poco irritante, ma anche meno potente dei retinoidi da farmacia. Retinyl palmitate e retinyl acetate sono parenti più deboli.",
@@ -233,26 +530,55 @@
         "it": "I retinoidi possono essere pericolosi in gravidanza: chi è incinta o la sta cercando deve chiedere al medico. Possono peggiorare l'eczema.",
         "en": "Retinoids can be dangerous in pregnancy: if you're pregnant or trying to be, ask your doctor. They can make eczema worse."
       },
-      "studies": { "it": [], "en": [] },
+      "studies": {
+        "it": [],
+        "en": []
+      },
       "sources": [
-        { "title": "DermNet — topical retinoids", "url": "https://dermnetnz.org/topics/topical-retinoids" },
-        { "title": "Sorg et al. 2006, Retinoids in cosmeceuticals", "url": "https://read.qxmd.com/read/17014484/retinoids-in-cosmeceuticals" },
-        { "title": "EU Regulation 2024/996", "url": "https://eur-lex.europa.eu/eli/reg/2024/996/oj" }
+        {
+          "title": "DermNet — topical retinoids",
+          "url": "https://dermnetnz.org/topics/topical-retinoids"
+        },
+        {
+          "title": "Sorg et al. 2006, Retinoids in cosmeceuticals",
+          "url": "https://read.qxmd.com/read/17014484/retinoids-in-cosmeceuticals"
+        },
+        {
+          "title": "EU Regulation 2024/996",
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/996/oj"
+        }
       ],
-      "latest": { "it": "2006 · regola UE: 2024", "en": "2006 · EU rule: 2024" }
+      "latest": {
+        "it": "2006 · regola UE: 2024",
+        "en": "2006 · EU rule: 2024"
+      }
     },
     {
       "id": "retinal",
-      "name": { "it": "Retinale", "en": "Retinal" },
-      "synonyms": ["retinaldeide", "retinaldehyde"],
-      "inci": ["Retinal"],
-      "categories": ["retinoids", "antiaging"],
+      "name": {
+        "it": "Retinale",
+        "en": "Retinal"
+      },
+      "synonyms": [
+        "retinaldeide",
+        "retinaldehyde"
+      ],
+      "inci": [
+        "Retinal"
+      ],
+      "categories": [
+        "retinoids",
+        "antiaging"
+      ],
       "drug": false,
       "what": {
         "it": "È un passaggio più vicino all'acido retinoico rispetto al retinolo. Migliora rughe e ruvidità della pelle. È considerato il più efficace tra i retinoidi cosmetici, ed è ben tollerato.",
         "en": "It's one step closer to retinoic acid than retinol. It improves wrinkles and rough skin. It's considered the most effective cosmetic retinoid, and it's well tolerated."
       },
-      "percentages": { "it": "Gli studi hanno usato lo 0,05% e lo 0,1%.", "en": "Studies used 0.05% and 0.1%." },
+      "percentages": {
+        "it": "Gli studi hanno usato lo 0,05% e lo 0,1%.",
+        "en": "Studies used 0.05% and 0.1%."
+      },
       "howto": {
         "it": "Come gli altri retinoidi, rende la pelle più sensibile al sole: di giorno servono protezione solare e crema idratante.",
         "en": "Like other retinoids, it makes skin more sensitive to the sun: during the day use sunscreen and moisturiser."
@@ -262,92 +588,219 @@
         "en": "It's a retinoid, so if you're pregnant or trying to be, ask your doctor."
       },
       "studies": {
-        "it": ["0,05% per 44 settimane su 125 persone: ha ridotto rughe e ruvidità come l'acido retinoico (farmaco), ma con meno irritazione", "0,05% e 0,1%, due volte al giorno per 3 mesi su 40 donne: pelle migliorata nel 95% dei casi in entrambi i gruppi; solo lo 0,1% ha schiarito le macchie"],
-        "en": ["0.05% for 44 weeks in 125 people: reduced wrinkles and roughness like retinoic acid (a medicine), but with less irritation", "0.05% and 0.1%, twice a day for 3 months in 40 women: skin improved in 95% of cases in both groups; only 0.1% faded dark spots"]
+        "it": [
+          "0,05% per 44 settimane su 125 persone: ha ridotto rughe e ruvidità come l'acido retinoico (farmaco), ma con meno irritazione",
+          "0,05% e 0,1%, due volte al giorno per 3 mesi su 40 donne: pelle migliorata nel 95% dei casi in entrambi i gruppi; solo lo 0,1% ha schiarito le macchie"
+        ],
+        "en": [
+          "0.05% for 44 weeks in 125 people: reduced wrinkles and roughness like retinoic acid (a medicine), but with less irritation",
+          "0.05% and 0.1%, twice a day for 3 months in 40 women: skin improved in 95% of cases in both groups; only 0.1% faded dark spots"
+        ]
       },
       "sources": [
-        { "title": "Sorg et al. 2006, Retinoids in cosmeceuticals", "url": "https://read.qxmd.com/read/17014484/retinoids-in-cosmeceuticals" },
-        { "title": "Creidi et al. 1998, J Am Acad Dermatol", "url": "https://www.em-consulte.com/article/608940/figures/profilometric-evaluation-of-photodamage-after-topi" },
-        { "title": "Kwon et al. 2018, J Cosmet Dermatol", "url": "https://cuk.elsevierpure.com/en/publications/efficacy-and-safety-of-retinaldehyde-01-and-005-creams-used-to-tr/" },
-        { "title": "DermNet — topical retinoids", "url": "https://dermnetnz.org/topics/topical-retinoids" }
+        {
+          "title": "Sorg et al. 2006, Retinoids in cosmeceuticals",
+          "url": "https://read.qxmd.com/read/17014484/retinoids-in-cosmeceuticals"
+        },
+        {
+          "title": "Creidi et al. 1998, J Am Acad Dermatol",
+          "url": "https://www.em-consulte.com/article/608940/figures/profilometric-evaluation-of-photodamage-after-topi"
+        },
+        {
+          "title": "Kwon et al. 2018, J Cosmet Dermatol",
+          "url": "https://cuk.elsevierpure.com/en/publications/efficacy-and-safety-of-retinaldehyde-01-and-005-creams-used-to-tr/"
+        },
+        {
+          "title": "DermNet — topical retinoids",
+          "url": "https://dermnetnz.org/topics/topical-retinoids"
+        }
       ],
-      "latest": { "it": "2018", "en": "2018" }
+      "latest": {
+        "it": "2018",
+        "en": "2018"
+      }
     },
     {
       "id": "bakuchiol",
-      "name": { "it": "Bakuchiol", "en": "Bakuchiol" },
-      "synonyms": ["Psoralea corylifolia"],
-      "inci": ["Bakuchiol"],
-      "categories": ["antiaging", "retinoid_alt"],
+      "name": {
+        "it": "Bakuchiol",
+        "en": "Bakuchiol"
+      },
+      "synonyms": [
+        "Psoralea corylifolia"
+      ],
+      "inci": [
+        "Bakuchiol"
+      ],
+      "categories": [
+        "antiaging",
+        "retinoid_alt"
+      ],
       "drug": false,
       "what": {
         "it": "Si ricava dai semi della pianta Psoralea corylifolia. Non è un retinoide, ma ha dato risultati simili al retinolo su rughe e macchie, con meno irritazione.",
         "en": "It comes from the seeds of the Psoralea corylifolia plant. It isn't a retinoid, but it gave results similar to retinol on wrinkles and dark spots, with less irritation."
       },
-      "percentages": { "it": "Lo studio ha usato lo 0,5%, due volte al giorno.", "en": "The study used 0.5%, twice a day." },
-      "howto": { "it": "", "en": "" },
-      "warning": { "it": "Le prove sono ancora poche: c'è un solo studio, piccolo.", "en": "The evidence is still limited: there is only one small study." },
-      "studies": {
-        "it": ["Bakuchiol 0,5% due volte al giorno contro retinolo 0,5% una volta al giorno, 44 persone per 12 settimane: rughe e macchie ridotte in modo simile; con il retinolo più pelle che si spella e più bruciore"],
-        "en": ["0.5% bakuchiol twice a day vs 0.5% retinol once a day, 44 people for 12 weeks: wrinkles and dark spots reduced similarly; retinol caused more peeling and stinging"]
+      "percentages": {
+        "it": "Lo studio ha usato lo 0,5%, due volte al giorno.",
+        "en": "The study used 0.5%, twice a day."
       },
-      "sources": [{ "title": "Dhaliwal et al. 2019, British Journal of Dermatology", "url": "https://academic.oup.com/bjd/article/180/2/e45/6601602" }],
-      "latest": { "it": "2019", "en": "2019" }
+      "howto": {
+        "it": "",
+        "en": ""
+      },
+      "warning": {
+        "it": "Le prove sono ancora poche: c'è un solo studio, piccolo.",
+        "en": "The evidence is still limited: there is only one small study."
+      },
+      "studies": {
+        "it": [
+          "Bakuchiol 0,5% due volte al giorno contro retinolo 0,5% una volta al giorno, 44 persone per 12 settimane: rughe e macchie ridotte in modo simile; con il retinolo più pelle che si spella e più bruciore"
+        ],
+        "en": [
+          "0.5% bakuchiol twice a day vs 0.5% retinol once a day, 44 people for 12 weeks: wrinkles and dark spots reduced similarly; retinol caused more peeling and stinging"
+        ]
+      },
+      "sources": [
+        {
+          "title": "Dhaliwal et al. 2019, British Journal of Dermatology",
+          "url": "https://academic.oup.com/bjd/article/180/2/e45/6601602"
+        }
+      ],
+      "latest": {
+        "it": "2019",
+        "en": "2019"
+      }
     },
     {
       "id": "tranexamic",
-      "name": { "it": "Acido tranexamico", "en": "Tranexamic acid" },
-      "synonyms": ["TXA"],
-      "inci": ["Tranexamic Acid"],
-      "categories": ["spots"],
+      "name": {
+        "it": "Acido tranexamico",
+        "en": "Tranexamic acid"
+      },
+      "synonyms": [
+        "TXA"
+      ],
+      "inci": [
+        "Tranexamic Acid"
+      ],
+      "categories": [
+        "spots"
+      ],
       "drug": false,
       "what": {
         "it": "Si usa contro le macchie, soprattutto il melasma. Applicato sulla pelle, i risultati sono per ora modesti: in molti studi non ha funzionato meglio di una crema senza principio attivo.",
         "en": "Used for dark spots, especially melasma. Applied to the skin, results so far are modest: in many studies it didn't work better than a cream with no active ingredient."
       },
-      "percentages": { "it": "Gli studi hanno usato dal 2% al 5%, per 12 settimane.", "en": "Studies used 2% to 5%, for 12 weeks." },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "Gli studi hanno usato dal 2% al 5%, per 12 settimane.",
+        "en": "Studies used 2% to 5%, for 12 weeks."
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "Gli studi sono pochi e piccoli (da 13 a 50 persone). Servono studi più grandi per sapere se funziona davvero.",
         "en": "Studies are few and small (13 to 50 people). Larger studies are needed to know whether it really works."
       },
       "studies": {
-        "it": ["6 studi su applicazione locale: in 5 le macchie sono migliorate rispetto all'inizio, ma di solito senza differenze rispetto alla crema senza principio attivo"],
-        "en": ["6 studies of topical use: in 5, spots improved compared with the start, but usually no differently from the cream with no active ingredient"]
+        "it": [
+          "6 studi su applicazione locale: in 5 le macchie sono migliorate rispetto all'inizio, ma di solito senza differenze rispetto alla crema senza principio attivo"
+        ],
+        "en": [
+          "6 studies of topical use: in 5, spots improved compared with the start, but usually no differently from the cream with no active ingredient"
+        ]
       },
-      "sources": [{ "title": "Wang et al. 2019, J Clin Aesthet Dermatol", "url": "https://jcadonline.com/melasma-august-2019/" }],
-      "latest": { "it": "2019", "en": "2019" }
+      "sources": [
+        {
+          "title": "Wang et al. 2019, J Clin Aesthet Dermatol",
+          "url": "https://jcadonline.com/melasma-august-2019/"
+        }
+      ],
+      "latest": {
+        "it": "2019",
+        "en": "2019"
+      }
     },
     {
       "id": "alpha_arbutin",
-      "name": { "it": "Alfa-arbutina", "en": "Alpha-arbutin" },
-      "synonyms": ["alpha-arbutin", "arbutina"],
-      "inci": ["Alpha-Arbutin"],
-      "categories": ["spots"],
+      "name": {
+        "it": "Alfa-arbutina",
+        "en": "Alpha-arbutin"
+      },
+      "synonyms": [
+        "alpha-arbutin",
+        "arbutina"
+      ],
+      "inci": [
+        "Alpha-Arbutin"
+      ],
+      "categories": [
+        "spots"
+      ],
       "drug": false,
       "what": {
         "it": "Blocca un enzima (la tirosinasi) che serve a produrre melanina, il pigmento delle macchie. In laboratorio è circa 10 volte più efficace dell'arbutina naturale.",
         "en": "Blocks an enzyme (tyrosinase) the skin needs to make melanin, the pigment in dark spots. In the lab it's about 10 times more effective than natural arbutin."
       },
-      "percentages": { "it": "In UE nelle creme viso fino al 2%, nelle lozioni corpo fino allo 0,5%.", "en": "In the EU: up to 2% in face creams, up to 0.5% in body lotions." },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "In UE nelle creme viso fino al 2%, nelle lozioni corpo fino allo 0,5%.",
+        "en": "In the EU: up to 2% in face creams, up to 0.5% in body lotions."
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "Le prove vengono soprattutto dal laboratorio. Mancano grandi studi sulle persone che confermino quanto funzioni sulla pelle.",
         "en": "The evidence comes mostly from the lab. There are no large studies in people confirming how well it works on skin."
       },
-      "studies": { "it": [], "en": [] },
+      "studies": {
+        "it": [],
+        "en": []
+      },
       "sources": [
-        { "title": "Saeedi et al. 2021, Phytotherapy Research", "url": "https://nutrition-evidence.com/article/377750/a-comprehensive-review-of-the-therapeutic-potential-of-a-arbutin" },
-        { "title": "EU Regulation 2024/996", "url": "https://eur-lex.europa.eu/eli/reg/2024/996/oj" }
+        {
+          "title": "Saeedi et al. 2021, Phytotherapy Research",
+          "url": "https://nutrition-evidence.com/article/377750/a-comprehensive-review-of-the-therapeutic-potential-of-a-arbutin"
+        },
+        {
+          "title": "EU Regulation 2024/996",
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/996/oj"
+        }
       ],
-      "latest": { "it": "2021 · regola UE: 2024", "en": "2021 · EU rule: 2024" }
+      "latest": {
+        "it": "2021 · regola UE: 2024",
+        "en": "2021 · EU rule: 2024"
+      }
     },
     {
       "id": "vitamin_c",
-      "name": { "it": "Vitamina C", "en": "Vitamin C" },
-      "synonyms": ["acido ascorbico", "ascorbic acid", "acido L-ascorbico", "L-ascorbic acid", "magnesium ascorbyl phosphate", "ascorbyl palmitate", "sodium ascorbyl phosphate"],
-      "inci": ["Ascorbic Acid", "Magnesium Ascorbyl Phosphate", "Ascorbyl Palmitate", "Sodium Ascorbyl Phosphate"],
-      "categories": ["antioxidants", "spots", "antiaging"],
+      "name": {
+        "it": "Vitamina C",
+        "en": "Vitamin C"
+      },
+      "synonyms": [
+        "acido ascorbico",
+        "ascorbic acid",
+        "acido L-ascorbico",
+        "L-ascorbic acid",
+        "magnesium ascorbyl phosphate",
+        "ascorbyl palmitate",
+        "sodium ascorbyl phosphate"
+      ],
+      "inci": [
+        "Ascorbic Acid",
+        "Magnesium Ascorbyl Phosphate",
+        "Ascorbyl Palmitate",
+        "Sodium Ascorbyl Phosphate"
+      ],
+      "categories": [
+        "antioxidants",
+        "spots",
+        "antiaging"
+      ],
       "drug": false,
       "what": {
         "it": "È un antiossidante. Aiuta la pelle a produrre e mantenere il collagene, migliora rughe e ruvidità e può schiarire leggermente le macchie. I derivati (magnesium ascorbyl phosphate, ascorbyl palmitate, sodium ascorbyl phosphate) sono più stabili ma penetrano meno.",
@@ -366,27 +819,62 @@
         "en": "It doesn't replace sunscreen. People who already eat a lot of vitamin C may see little effect."
       },
       "studies": {
-        "it": ["10% per 12 settimane, 10 persone: rughe e segni del sole migliorati rispetto al placebo", "5% per 6 mesi, 20 persone: solchi migliorati", "3% al giorno per 4 mesi: pelle più densa in profondità"],
-        "en": ["10% for 12 weeks, 10 people: wrinkles and sun damage improved compared with placebo", "5% for 6 months, 20 people: furrows improved", "3% daily for 4 months: denser skin in the deeper layer"]
+        "it": [
+          "10% per 12 settimane, 10 persone: rughe e segni del sole migliorati rispetto al placebo",
+          "5% per 6 mesi, 20 persone: solchi migliorati",
+          "3% al giorno per 4 mesi: pelle più densa in profondità"
+        ],
+        "en": [
+          "10% for 12 weeks, 10 people: wrinkles and sun damage improved compared with placebo",
+          "5% for 6 months, 20 people: furrows improved",
+          "3% daily for 4 months: denser skin in the deeper layer"
+        ]
       },
       "sources": [
-        { "title": "Al-Niaimi and Chiang 2017, J Clin Aesthet Dermatol", "url": "https://jcadonline.com/topical-vitamin-c-and-the-skin-mechanisms-of-action-and-clinical-applications/" },
-        { "title": "Linus Pauling Institute — vitamin C and skin", "url": "https://lpi.oregonstate.edu/node/1706" }
+        {
+          "title": "Al-Niaimi and Chiang 2017, J Clin Aesthet Dermatol",
+          "url": "https://jcadonline.com/topical-vitamin-c-and-the-skin-mechanisms-of-action-and-clinical-applications/"
+        },
+        {
+          "title": "Linus Pauling Institute — vitamin C and skin",
+          "url": "https://lpi.oregonstate.edu/node/1706"
+        }
       ],
-      "latest": { "it": "2017", "en": "2017" }
+      "latest": {
+        "it": "2017",
+        "en": "2017"
+      }
     },
     {
       "id": "vitamin_e",
-      "name": { "it": "Vitamina E", "en": "Vitamin E" },
-      "synonyms": ["tocoferolo", "tocopherol", "alfa-tocoferolo", "alpha-tocopherol", "tocoferil acetato", "tocopheryl acetate"],
-      "inci": ["Tocopherol", "Tocopheryl Acetate"],
-      "categories": ["antioxidants"],
+      "name": {
+        "it": "Vitamina E",
+        "en": "Vitamin E"
+      },
+      "synonyms": [
+        "tocoferolo",
+        "tocopherol",
+        "alfa-tocoferolo",
+        "alpha-tocopherol",
+        "tocoferil acetato",
+        "tocopheryl acetate"
+      ],
+      "inci": [
+        "Tocopherol",
+        "Tocopheryl Acetate"
+      ],
+      "categories": [
+        "antioxidants"
+      ],
       "drug": false,
       "what": {
         "it": "È un antiossidante: aiuta a limitare i danni del sole sulla pelle. Insieme alla vitamina C protegge meglio di ognuna da sola. Due piccoli studi mostrano che aiuta la pelle a trattenere l'acqua.",
         "en": "It's an antioxidant: it helps limit sun damage to the skin. Together with vitamin C it protects better than either alone. Two small studies show it helps skin hold water."
       },
-      "percentages": { "it": "Dallo 0,1% all'1% è considerata sicura ed efficace.", "en": "0.1% to 1% is considered safe and effective." },
+      "percentages": {
+        "it": "Dallo 0,1% all'1% è considerata sicura ed efficace.",
+        "en": "0.1% to 1% is considered safe and effective."
+      },
       "howto": {
         "it": "La forma che funziona meglio è il tocoferolo puro. Il tocoferil acetato è più stabile, ma non è chiaro quanto la pelle riesca a renderlo attivo.",
         "en": "The form that works best is pure tocopherol. Tocopheryl acetate is more stable, but it's unclear how well skin can make it active."
@@ -395,16 +883,45 @@
         "it": "Non è una protezione solare: non filtra i raggi UVA. Non migliora le cicatrici: negli studi non ha aiutato, e a volte le ha peggiorate. Alcune forme possono dare allergia.",
         "en": "It isn't a sunscreen: it doesn't filter UVA rays. It doesn't improve scars: in studies it didn't help, and sometimes made them worse. Some forms can cause allergy."
       },
-      "studies": { "it": [], "en": [] },
-      "sources": [{ "title": "Linus Pauling Institute — vitamin E and skin", "url": "https://lpi.oregonstate.edu/mic/micronutrients-health/skin-health/nutrient-index/vitamin-E" }],
-      "latest": { "it": "Scheda Linus Pauling Institute", "en": "Linus Pauling Institute review" }
+      "studies": {
+        "it": [],
+        "en": []
+      },
+      "sources": [
+        {
+          "title": "Linus Pauling Institute — vitamin E and skin",
+          "url": "https://lpi.oregonstate.edu/mic/micronutrients-health/skin-health/nutrient-index/vitamin-E"
+        }
+      ],
+      "latest": {
+        "it": "Scheda Linus Pauling Institute",
+        "en": "Linus Pauling Institute review"
+      }
     },
     {
       "id": "peptides",
-      "name": { "it": "Peptidi", "en": "Peptides" },
-      "synonyms": ["Matrixyl", "Argireline", "palmitoyl pentapeptide", "acetyl hexapeptide", "carnosina", "carnosine"],
-      "inci": ["Palmitoyl Pentapeptide-4", "Acetyl Hexapeptide-8", "Acetyl Hexapeptide-3", "Palmitoyl Tripeptide-1", "Carnosine"],
-      "categories": ["antiaging"],
+      "name": {
+        "it": "Peptidi",
+        "en": "Peptides"
+      },
+      "synonyms": [
+        "Matrixyl",
+        "Argireline",
+        "palmitoyl pentapeptide",
+        "acetyl hexapeptide",
+        "carnosina",
+        "carnosine"
+      ],
+      "inci": [
+        "Palmitoyl Pentapeptide-4",
+        "Acetyl Hexapeptide-8",
+        "Acetyl Hexapeptide-3",
+        "Palmitoyl Tripeptide-1",
+        "Carnosine"
+      ],
+      "categories": [
+        "antiaging"
+      ],
       "drug": false,
       "what": {
         "it": "Sono piccole catene di proteine. Alcuni \"segnalano\" alla pelle di produrre collagene, altri rilassano un po' i muscoli delle rughe d'espressione.",
@@ -414,51 +931,111 @@
         "it": "Cambiano molto da peptide a peptide. Gli studi usano quantità piccolissime, per esempio lo 0,005% per il palmitoyl pentapeptide.",
         "en": "They vary a lot from peptide to peptide. Studies use tiny amounts, for example 0.005% for palmitoyl pentapeptide."
       },
-      "howto": { "it": "", "en": "" },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "Le prove sono deboli. Gli studi sono pochi e piccoli, spesso mescolano i peptidi con altri attivi e non è chiaro quanto riescano a entrare nella pelle. Retinoidi, acidi e vitamina C hanno prove più solide.",
         "en": "The evidence is weak. Studies are few and small, often mix peptides with other actives, and it's unclear how well they get into the skin. Retinoids, acids and vitamin C have stronger evidence."
       },
       "studies": {
-        "it": ["Palmitoyl pentapeptide 0,005%, due volte al giorno per 28 giorni: pieghe meno profonde del 18%", "Acetyl hexapeptide al 10% per 30 giorni, 10 donne: rughe del contorno occhi migliorate del 30%"],
-        "en": ["0.005% palmitoyl pentapeptide, twice a day for 28 days: folds 18% less deep", "10% acetyl hexapeptide for 30 days, 10 women: eye-area wrinkles improved by 30%"]
+        "it": [
+          "Palmitoyl pentapeptide 0,005%, due volte al giorno per 28 giorni: pieghe meno profonde del 18%",
+          "Acetyl hexapeptide al 10% per 30 giorni, 10 donne: rughe del contorno occhi migliorate del 30%"
+        ],
+        "en": [
+          "0.005% palmitoyl pentapeptide, twice a day for 28 days: folds 18% less deep",
+          "10% acetyl hexapeptide for 30 days, 10 women: eye-area wrinkles improved by 30%"
+        ]
       },
       "sources": [
-        { "title": "Schagen 2017, Cosmetics", "url": "https://www.mdpi.com/2079-9284/4/2/16/htm" },
-        { "title": "MDedge — dermatologist K. Fields", "url": "https://mdedge.com/content/expert-favors-proven-agents-over-peptide-cosmeceuticals" }
+        {
+          "title": "Schagen 2017, Cosmetics",
+          "url": "https://www.mdpi.com/2079-9284/4/2/16/htm"
+        },
+        {
+          "title": "MDedge — dermatologist K. Fields",
+          "url": "https://mdedge.com/content/expert-favors-proven-agents-over-peptide-cosmeceuticals"
+        }
       ],
-      "latest": { "it": "2017", "en": "2017" }
+      "latest": {
+        "it": "2017",
+        "en": "2017"
+      }
     },
     {
       "id": "copper_peptides",
-      "name": { "it": "Peptidi di rame", "en": "Copper peptides" },
-      "synonyms": ["GHK-Cu", "tripeptide di rame", "copper tripeptide"],
-      "inci": ["Copper Tripeptide-1"],
-      "categories": ["antiaging"],
+      "name": {
+        "it": "Peptidi di rame",
+        "en": "Copper peptides"
+      },
+      "synonyms": [
+        "GHK-Cu",
+        "tripeptide di rame",
+        "copper tripeptide"
+      ],
+      "inci": [
+        "Copper Tripeptide-1"
+      ],
+      "categories": [
+        "antiaging"
+      ],
       "drug": false,
       "what": {
         "it": "Portano il rame nella pelle e la aiutano a produrre collagene. Negli studi hanno migliorato elasticità e rughe.",
         "en": "They deliver copper to the skin and help it make collagen. In studies they improved elasticity and wrinkles."
       },
-      "percentages": { "it": "Gli studi non indicano una concentrazione di riferimento.", "en": "Studies don't give a reference concentration." },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "Gli studi non indicano una concentrazione di riferimento.",
+        "en": "Studies don't give a reference concentration."
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "Sono tra i peptidi con più studi, ma sono comunque pochi e piccoli.",
         "en": "They're among the most studied peptides, but the studies are still few and small."
       },
       "studies": {
-        "it": ["Crema sulle cosce per un mese, 20 donne: più collagene nel 70% dei casi, contro il 50% con la vitamina C e il 40% con l'acido retinoico", "Due studi di 12 settimane (71 e 41 donne): pelle più elastica e meno rughe"],
-        "en": ["Cream on the thighs for one month, 20 women: more collagen in 70% of cases, vs 50% with vitamin C and 40% with retinoic acid", "Two 12-week studies (71 and 41 women): more elastic skin and fewer wrinkles"]
+        "it": [
+          "Crema sulle cosce per un mese, 20 donne: più collagene nel 70% dei casi, contro il 50% con la vitamina C e il 40% con l'acido retinoico",
+          "Due studi di 12 settimane (71 e 41 donne): pelle più elastica e meno rughe"
+        ],
+        "en": [
+          "Cream on the thighs for one month, 20 women: more collagen in 70% of cases, vs 50% with vitamin C and 40% with retinoic acid",
+          "Two 12-week studies (71 and 41 women): more elastic skin and fewer wrinkles"
+        ]
       },
-      "sources": [{ "title": "Schagen 2017, Cosmetics", "url": "https://www.mdpi.com/2079-9284/4/2/16/htm" }],
-      "latest": { "it": "2017", "en": "2017" }
+      "sources": [
+        {
+          "title": "Schagen 2017, Cosmetics",
+          "url": "https://www.mdpi.com/2079-9284/4/2/16/htm"
+        }
+      ],
+      "latest": {
+        "it": "2017",
+        "en": "2017"
+      }
     },
     {
       "id": "hyaluronic",
-      "name": { "it": "Acido ialuronico", "en": "Hyaluronic acid" },
-      "synonyms": ["ialuronato di sodio", "sodium hyaluronate"],
-      "inci": ["Hyaluronic Acid", "Sodium Hyaluronate"],
-      "categories": ["barrier"],
+      "name": {
+        "it": "Acido ialuronico",
+        "en": "Hyaluronic acid"
+      },
+      "synonyms": [
+        "ialuronato di sodio",
+        "sodium hyaluronate"
+      ],
+      "inci": [
+        "Hyaluronic Acid",
+        "Sodium Hyaluronate"
+      ],
+      "categories": [
+        "barrier"
+      ],
       "drug": false,
       "notAcid": {
         "it": "Non è un acido: nonostante il nome, non esfolia e non c'entra niente con glicolico o salicilico. È una specie di zucchero lungo che la pelle produce già da sola.",
@@ -468,88 +1045,209 @@
         "it": "Trattiene molta acqua. Quello \"pesante\" (alto peso molecolare) resta in superficie e forma un velo che fa evaporare meno acqua. Quello \"leggero\" (basso peso molecolare) è legato a una pelle più idratata e che si rigenera più in fretta. Oltre il 95% dei cosmetici usa il sodio ialuronato.",
         "en": "It holds a lot of water. The \"heavy\" kind (high molecular weight) stays on the surface and forms a film that slows water loss. The \"light\" kind (low molecular weight) is linked to more hydrated skin that renews faster. Over 95% of cosmetics use sodium hyaluronate."
       },
-      "percentages": { "it": "Nei cosmetici di solito dallo 0,2% all'1%.", "en": "In cosmetics, usually 0.2% to 1%." },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "Nei cosmetici di solito dallo 0,2% all'1%.",
+        "en": "In cosmetics, usually 0.2% to 1%."
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "È ben tollerato e non ha limiti di legge in UE. Non riempie le rughe come i filler: quelli sono iniezioni fatte dal medico.",
         "en": "It's well tolerated and has no legal limits in the EU. It doesn't fill wrinkles like fillers do: those are injections given by a doctor."
       },
-      "studies": { "it": [], "en": [] },
-      "sources": [{ "title": "Juncan et al. 2021, Molecules", "url": "https://www.mdpi.com/1420-3049/26/15/4429/htm" }],
-      "latest": { "it": "2021", "en": "2021" }
+      "studies": {
+        "it": [],
+        "en": []
+      },
+      "sources": [
+        {
+          "title": "Juncan et al. 2021, Molecules",
+          "url": "https://www.mdpi.com/1420-3049/26/15/4429/htm"
+        }
+      ],
+      "latest": {
+        "it": "2021",
+        "en": "2021"
+      }
     },
     {
       "id": "glycerin",
-      "name": { "it": "Glicerina", "en": "Glycerin" },
-      "synonyms": ["glicerolo", "glycerol", "glycerine"],
-      "inci": ["Glycerin"],
-      "categories": ["barrier"],
+      "name": {
+        "it": "Glicerina",
+        "en": "Glycerin"
+      },
+      "synonyms": [
+        "glicerolo",
+        "glycerol",
+        "glycerine"
+      ],
+      "inci": [
+        "Glycerin"
+      ],
+      "categories": [
+        "barrier"
+      ],
       "drug": false,
       "what": {
         "it": "Richiama e trattiene l'acqua negli strati superficiali della pelle (è un umettante). Migliora idratazione e barriera, protegge dalle sostanze irritanti e aiuta la pelle a ripararsi. È utile sulla pelle secca, anche con dermatite atopica o secchezza invernale.",
         "en": "It draws in and holds water in the outer layers of the skin (it's a humectant). It improves hydration and the barrier, protects against irritants and helps skin repair. Useful for dry skin, including atopic dermatitis and winter dryness."
       },
-      "percentages": { "it": "Lo studio di riferimento non indica una concentrazione.", "en": "The reference study doesn't give a concentration." },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "Lo studio di riferimento non indica una concentrazione.",
+        "en": "The reference study doesn't give a concentration."
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "È un ingrediente semplice ed economico, ma con prove solide: non serve che sia \"di lusso\" per funzionare.",
         "en": "It's a simple, cheap ingredient, but with solid evidence: it doesn't need to be \"luxury\" to work."
       },
-      "studies": { "it": [], "en": [] },
+      "studies": {
+        "it": [],
+        "en": []
+      },
       "sources": [
-        { "title": "Darlenski, Fluhr and Surber 2008, British Journal of Dermatology", "url": "https://nutrition-evidence.com/article/115932/glycerol-and-the-skin-holistic-approach-to-its-origin-and-functions" },
-        { "title": "DermNet — emollients and moisturisers", "url": "https://dermnetnz.org/topics/emollients-and-moisturisers" }
+        {
+          "title": "Darlenski, Fluhr and Surber 2008, British Journal of Dermatology",
+          "url": "https://nutrition-evidence.com/article/115932/glycerol-and-the-skin-holistic-approach-to-its-origin-and-functions"
+        },
+        {
+          "title": "DermNet — emollients and moisturisers",
+          "url": "https://dermnetnz.org/topics/emollients-and-moisturisers"
+        }
       ],
-      "latest": { "it": "2008", "en": "2008" }
+      "latest": {
+        "it": "2008",
+        "en": "2008"
+      }
     },
     {
       "id": "ceramides",
-      "name": { "it": "Ceramidi", "en": "Ceramides" },
-      "synonyms": ["Ceramide NP", "Ceramide AP", "Ceramide EOP"],
-      "inci": ["Ceramide NP", "Ceramide AP", "Ceramide EOP"],
-      "categories": ["barrier"],
+      "name": {
+        "it": "Ceramidi",
+        "en": "Ceramides"
+      },
+      "synonyms": [
+        "Ceramide NP",
+        "Ceramide AP",
+        "Ceramide EOP"
+      ],
+      "inci": [
+        "Ceramide NP",
+        "Ceramide AP",
+        "Ceramide EOP"
+      ],
+      "categories": [
+        "barrier"
+      ],
       "drug": false,
       "what": {
         "it": "Sono grassi che la pelle produce già: insieme a colesterolo e acidi grassi formano il \"cemento\" della barriera. Nella pelle con eczema atopico alcuni ceramidi sono più bassi. I prodotti con ceramidi possono migliorare il contenuto di grassi e di acqua della pelle.",
         "en": "They're fats the skin already makes: together with cholesterol and fatty acids they form the barrier's \"mortar\". In skin with atopic eczema some ceramides are lower. Products with ceramides can improve the skin's fat and water content."
       },
-      "percentages": { "it": "Le fonti non indicano una concentrazione di riferimento.", "en": "The sources don't give a reference concentration." },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "Le fonti non indicano una concentrazione di riferimento.",
+        "en": "The sources don't give a reference concentration."
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "Le prove vengono soprattutto da pareri di esperti; gli studi diretti sui prodotti sono pochi.",
         "en": "The evidence comes mostly from expert opinion; there are few direct studies on products."
       },
-      "studies": { "it": [], "en": [] },
+      "studies": {
+        "it": [],
+        "en": []
+      },
       "sources": [
-        { "title": "Jungersted et al. 2010, Acta Dermato-Venereologica", "url": "https://medicaljournals.se/acta/download/10.2340/00015555-0894" },
-        { "title": "Schachner et al. 2020, J Drugs Dermatol", "url": "https://jddonline.com/articles/a-consensus-about-the-importance-of-ceramide-containing-skincare-for-normal-and-sensitive-skin-condi-S1545961620P0769X/?_page=2" }
+        {
+          "title": "Jungersted et al. 2010, Acta Dermato-Venereologica",
+          "url": "https://medicaljournals.se/acta/download/10.2340/00015555-0894"
+        },
+        {
+          "title": "Schachner et al. 2020, J Drugs Dermatol",
+          "url": "https://jddonline.com/articles/a-consensus-about-the-importance-of-ceramide-containing-skincare-for-normal-and-sensitive-skin-condi-S1545961620P0769X/?_page=2"
+        }
       ],
-      "latest": { "it": "2020", "en": "2020" }
+      "latest": {
+        "it": "2020",
+        "en": "2020"
+      }
     },
     {
       "id": "panthenol",
-      "name": { "it": "Pantenolo", "en": "Panthenol" },
-      "synonyms": ["provitamina B5", "provitamin B5", "dexpantenolo", "dexpanthenol", "D-pantenolo", "D-panthenol"],
-      "inci": ["Panthenol"],
-      "categories": ["barrier", "soothing"],
+      "name": {
+        "it": "Pantenolo",
+        "en": "Panthenol"
+      },
+      "synonyms": [
+        "provitamina B5",
+        "provitamin B5",
+        "dexpantenolo",
+        "dexpanthenol",
+        "D-pantenolo",
+        "D-panthenol"
+      ],
+      "inci": [
+        "Panthenol"
+      ],
+      "categories": [
+        "barrier",
+        "soothing"
+      ],
       "drug": false,
       "what": {
         "it": "Idrata, rinforza la barriera della pelle, aiuta a prevenire le irritazioni e favorisce la guarigione delle piccole ferite. Si usa da circa 70 anni in dermatologia.",
         "en": "Hydrates, strengthens the skin barrier, helps prevent irritation and supports healing of small wounds. It has been used in dermatology for about 70 years."
       },
-      "percentages": { "it": "Lo studio di riferimento non indica una concentrazione.", "en": "The reference study doesn't give a concentration." },
-      "howto": { "it": "", "en": "" },
-      "warning": { "it": "", "en": "" },
-      "studies": { "it": [], "en": [] },
-      "sources": [{ "title": "Proksch et al. 2017, J Dermatolog Treat", "url": "https://go.drugbank.com/articles/A32373" }],
-      "latest": { "it": "2017", "en": "2017" }
+      "percentages": {
+        "it": "Lo studio di riferimento non indica una concentrazione.",
+        "en": "The reference study doesn't give a concentration."
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
+      "warning": {
+        "it": "",
+        "en": ""
+      },
+      "studies": {
+        "it": [],
+        "en": []
+      },
+      "sources": [
+        {
+          "title": "Proksch et al. 2017, J Dermatolog Treat",
+          "url": "https://go.drugbank.com/articles/A32373"
+        }
+      ],
+      "latest": {
+        "it": "2017",
+        "en": "2017"
+      }
     },
     {
       "id": "squalane",
-      "name": { "it": "Squalano", "en": "Squalane" },
-      "synonyms": ["squalane"],
-      "inci": ["Squalane"],
-      "categories": ["barrier"],
+      "name": {
+        "it": "Squalano",
+        "en": "Squalane"
+      },
+      "synonyms": [
+        "squalane"
+      ],
+      "inci": [
+        "Squalane"
+      ],
+      "categories": [
+        "barrier"
+      ],
       "drug": false,
       "what": {
         "it": "È un olio che deriva dallo squalene, un grasso che la pelle produce già nel sebo. Da non confondere con lo squalene stesso.",
@@ -559,21 +1257,46 @@
         "it": "Nei cosmetici si usa da quantità piccolissime fino a prodotti quasi puri.",
         "en": "Cosmetics use it in anything from tiny amounts to almost pure products."
       },
-      "howto": { "it": "", "en": "" },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "È considerato sicuro: non irrita e non dà allergie, anche puro.",
         "en": "It's considered safe: it doesn't irritate or cause allergy, even when pure."
       },
-      "studies": { "it": [], "en": [] },
-      "sources": [{ "title": "Cosmetic Ingredient Review 1982, J Am Coll Toxicol", "url": "https://hero.epa.gov/hero/index.cfm/reference/details/reference_id/4968730" }],
-      "latest": { "it": "1982", "en": "1982" }
+      "studies": {
+        "it": [],
+        "en": []
+      },
+      "sources": [
+        {
+          "title": "Cosmetic Ingredient Review 1982, J Am Coll Toxicol",
+          "url": "https://hero.epa.gov/hero/index.cfm/reference/details/reference_id/4968730"
+        }
+      ],
+      "latest": {
+        "it": "1982",
+        "en": "1982"
+      }
     },
     {
       "id": "urea",
-      "name": { "it": "Urea", "en": "Urea" },
-      "synonyms": ["carbammide", "carbamide"],
-      "inci": ["Urea"],
-      "categories": ["barrier", "exfoliants"],
+      "name": {
+        "it": "Urea",
+        "en": "Urea"
+      },
+      "synonyms": [
+        "carbammide",
+        "carbamide"
+      ],
+      "inci": [
+        "Urea"
+      ],
+      "categories": [
+        "barrier",
+        "exfoliants"
+      ],
       "drug": false,
       "what": {
         "it": "Richiama acqua nella pelle e, a concentrazioni più alte, ammorbidisce e stacca la pelle ispessita. Migliora la barriera ed è utile sulla pelle secca, anche con dermatite atopica, ittiosi o psoriasi.",
@@ -583,52 +1306,121 @@
         "it": "Cambia tutto in base alla concentrazione: dal 2% al 12% idrata la pelle secca; dal 15% al 30% è per la pelle ispessita, anche in zone delicate come il viso; dal 40% al 50% è per ispessimenti localizzati e gravi, per esempio calli e unghie.",
         "en": "It all depends on concentration: 2% to 12% hydrates dry skin; 15% to 30% is for thickened skin, including delicate areas like the face; 40% to 50% is for localised, severe thickening, such as calluses and nails."
       },
-      "howto": { "it": "", "en": "" },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "È ben tollerata. Può dare rossore, pizzicore o bruciore, soprattutto alle concentrazioni alte e sulla pelle graffiata o screpolata.",
         "en": "It's well tolerated. It can cause redness, stinging or burning, especially at high concentrations and on scratched or cracked skin."
       },
-      "studies": { "it": [], "en": [] },
+      "studies": {
+        "it": [],
+        "en": []
+      },
       "sources": [
-        { "title": "Micali and Lacarrubba 2020, Int J Clin Pract", "url": "https://www.iris.unict.it/retrieve/e61f785a-f280-41a2-82a4-72f421a8c849/Int%20J%20Clinical%20Practice%20-%202020%20-%20Micali%20-%20Optimising%20the%20use%20of%20urea%20in%20dermatology.pdf" },
-        { "title": "Piquero-Casals et al. 2021, Dermatology and Therapy", "url": "https://www.springermedicine.com/atopic-dermatitis/vulgar-psoriasis/urea-in-dermatology-a-review-of-its-emollient-moisturizing-kerat/22219224" },
-        { "title": "DermNet — emollients and moisturisers", "url": "https://dermnetnz.org/topics/emollients-and-moisturisers" }
+        {
+          "title": "Micali and Lacarrubba 2020, Int J Clin Pract",
+          "url": "https://www.iris.unict.it/retrieve/e61f785a-f280-41a2-82a4-72f421a8c849/Int%20J%20Clinical%20Practice%20-%202020%20-%20Micali%20-%20Optimising%20the%20use%20of%20urea%20in%20dermatology.pdf"
+        },
+        {
+          "title": "Piquero-Casals et al. 2021, Dermatology and Therapy",
+          "url": "https://www.springermedicine.com/atopic-dermatitis/vulgar-psoriasis/urea-in-dermatology-a-review-of-its-emollient-moisturizing-kerat/22219224"
+        },
+        {
+          "title": "DermNet — emollients and moisturisers",
+          "url": "https://dermnetnz.org/topics/emollients-and-moisturisers"
+        }
       ],
-      "latest": { "it": "2021", "en": "2021" }
+      "latest": {
+        "it": "2021",
+        "en": "2021"
+      }
     },
     {
       "id": "centella",
-      "name": { "it": "Centella asiatica", "en": "Centella asiatica" },
-      "synonyms": ["cica", "gotu kola", "asiaticoside", "madecassoside", "acido asiatico", "asiatic acid", "acido madecassico", "madecassic acid"],
-      "inci": ["Centella Asiatica Extract", "Asiaticoside", "Madecassoside"],
-      "categories": ["soothing", "barrier"],
+      "name": {
+        "it": "Centella asiatica",
+        "en": "Centella asiatica"
+      },
+      "synonyms": [
+        "cica",
+        "gotu kola",
+        "asiaticoside",
+        "madecassoside",
+        "acido asiatico",
+        "asiatic acid",
+        "acido madecassico",
+        "madecassic acid"
+      ],
+      "inci": [
+        "Centella Asiatica Extract",
+        "Asiaticoside",
+        "Madecassoside"
+      ],
+      "categories": [
+        "soothing",
+        "barrier"
+      ],
       "drug": false,
       "what": {
         "it": "Aiuta la pelle a produrre collagene e a guarire piccole ferite, ustioni e cicatrici, e calma l'infiammazione. Principi attivi: asiaticoside, madecassoside, acido asiatico, acido madecassico.",
         "en": "Helps skin make collagen and heal small wounds, burns and scars, and calms inflammation. Active compounds: asiaticoside, madecassoside, asiatic acid, madecassic acid."
       },
-      "percentages": { "it": "Le fonti non indicano una concentrazione di riferimento.", "en": "The sources don't give a reference concentration." },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "Le fonti non indicano una concentrazione di riferimento.",
+        "en": "The sources don't give a reference concentration."
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "Gli studi sulle persone riguardano soprattutto ferite e cicatrici, non la cura della pelle di tutti i giorni. Sono pochi: servono altri studi per confermare.",
         "en": "Studies in people are mostly about wounds and scars, not everyday skincare. They're few: more studies are needed to confirm."
       },
       "studies": {
-        "it": ["5 studi controllati su ustioni, ulcere, cicatrici e laser: guarigione più veloce, ma prove ancora limitate (2022)"],
-        "en": ["5 controlled studies on burns, ulcers, scars and laser treatment: faster healing, but evidence is still limited (2022)"]
+        "it": [
+          "5 studi controllati su ustioni, ulcere, cicatrici e laser: guarigione più veloce, ma prove ancora limitate (2022)"
+        ],
+        "en": [
+          "5 controlled studies on burns, ulcers, scars and laser treatment: faster healing, but evidence is still limited (2022)"
+        ]
       },
       "sources": [
-        { "title": "Bylka et al. 2013, Postepy Dermatol Alergol", "url": "https://www.termedia.pl/Journal/-7/Streszczenie-20289" },
-        { "title": "Systematic review 2022, J Health Sci Altern Med", "url": "https://he01.tci-thaijo.org/index.php/jhealthscialternmed/article/view/257756" }
+        {
+          "title": "Bylka et al. 2013, Postepy Dermatol Alergol",
+          "url": "https://www.termedia.pl/Journal/-7/Streszczenie-20289"
+        },
+        {
+          "title": "Systematic review 2022, J Health Sci Altern Med",
+          "url": "https://he01.tci-thaijo.org/index.php/jhealthscialternmed/article/view/257756"
+        }
       ],
-      "latest": { "it": "2022", "en": "2022" }
+      "latest": {
+        "it": "2022",
+        "en": "2022"
+      }
     },
     {
       "id": "sunscreen",
-      "name": { "it": "Protezione solare", "en": "Sunscreen" },
-      "synonyms": ["SPF", "filtri solari", "sun filters", "crema solare", "sun cream", "UVA", "UVB"],
+      "name": {
+        "it": "Protezione solare",
+        "en": "Sunscreen"
+      },
+      "synonyms": [
+        "SPF",
+        "filtri solari",
+        "sun filters",
+        "crema solare",
+        "sun cream",
+        "UVA",
+        "UVB"
+      ],
       "inci": [],
-      "categories": ["sun"],
+      "categories": [
+        "sun"
+      ],
       "drug": false,
       "what": {
         "it": "Protegge dai raggi ultravioletti del sole. I raggi UVB sono la causa principale di scottature e invecchiamento da sole, ma vanno limitati sia gli UVB che gli UVA. Il numero SPF indica la protezione dalle scottature; la protezione UVA si misura a parte. Scegli sempre una protezione che copra entrambi: in UE la protezione UVA deve essere almeno un terzo dell'SPF, e il simbolo \"UVA\" in un cerchio lo indica.",
@@ -646,22 +1438,55 @@
         "it": "Nessuna crema protegge al 100%: in UE sono vietate scritte come \"protezione totale\" o \"non serve rimetterla\". Non restare troppo al sole e fai attenzione con i bambini piccoli.",
         "en": "No sunscreen protects 100%: in the EU, claims like \"total protection\" or \"no need to reapply\" are banned. Don't stay in the sun too long and take care with small children."
       },
-      "studies": { "it": [], "en": [] },
+      "studies": {
+        "it": [],
+        "en": []
+      },
       "sources": [
-        { "title": "EU Recommendation 2006/647", "url": "https://eur-lex.europa.eu/eli/reco/2006/647/oj/eng" },
-        { "title": "EU scientific committee — effects of UVA and UVB", "url": "https://ec.europa.eu/health/scientific_committees/opinions_layman/es/camas-solares/l-2/3-health-effects-uva-uvb-uvc.htm" },
-        { "title": "American Academy of Dermatology — how to apply sunscreen", "url": "https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen" },
-        { "title": "Skin Cancer Foundation", "url": "https://www.skincancer.org/press/the-skin-cancer-foundation-offers-tips-on-choosing-and-using-sunscreen/" },
-        { "title": "Biorius — EU rules", "url": "https://biorius.com/regulatory/sunscreen-products" }
+        {
+          "title": "EU Recommendation 2006/647",
+          "url": "https://eur-lex.europa.eu/eli/reco/2006/647/oj/eng"
+        },
+        {
+          "title": "EU scientific committee — effects of UVA and UVB",
+          "url": "https://ec.europa.eu/health/scientific_committees/opinions_layman/es/camas-solares/l-2/3-health-effects-uva-uvb-uvc.htm"
+        },
+        {
+          "title": "American Academy of Dermatology — how to apply sunscreen",
+          "url": "https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen"
+        },
+        {
+          "title": "Skin Cancer Foundation",
+          "url": "https://www.skincancer.org/press/the-skin-cancer-foundation-offers-tips-on-choosing-and-using-sunscreen/"
+        },
+        {
+          "title": "Biorius — EU rules",
+          "url": "https://biorius.com/regulatory/sunscreen-products"
+        }
       ],
-      "latest": { "it": "Raccomandazioni AAD e Skin Cancer Foundation", "en": "AAD and Skin Cancer Foundation guidance" }
+      "latest": {
+        "it": "Raccomandazioni AAD e Skin Cancer Foundation",
+        "en": "AAD and Skin Cancer Foundation guidance"
+      }
     },
     {
       "id": "azelaic",
-      "name": { "it": "Acido azelaico", "en": "Azelaic acid" },
-      "synonyms": ["azelaic acid"],
-      "inci": ["Azelaic Acid"],
-      "categories": ["drugs", "blemishes", "spots", "redness"],
+      "name": {
+        "it": "Acido azelaico",
+        "en": "Azelaic acid"
+      },
+      "synonyms": [
+        "azelaic acid"
+      ],
+      "inci": [
+        "Azelaic Acid"
+      ],
+      "categories": [
+        "drugs",
+        "blemishes",
+        "spots",
+        "redness"
+      ],
       "drug": true,
       "what": {
         "it": "Aiuta l'acne lieve e moderata, sia punti neri che brufoli infiammati. Riduce le macchie, soprattutto quelle lasciate dai brufoli e il melasma. Si usa anche per la rosacea.",
@@ -679,16 +1504,37 @@
         "it": "È ben tollerato, ma sulla pelle molto sensibile o con eczema può irritare. Se arrivano rossore forte, desquamazione, prurito o bruciore, smetti e senti il medico. Può schiarire troppo la pelle, cosa più visibile sulle pelli scure. In gravidanza chiedi al medico o al farmacista.",
         "en": "It's well tolerated, but on very sensitive or eczema-prone skin it can irritate. If you get strong redness, peeling, itching or burning, stop and see your doctor. It can lighten skin too much, more visible on darker skin. In pregnancy ask your doctor or pharmacist."
       },
-      "studies": { "it": [], "en": [] },
-      "sources": [{ "title": "DermNet — azelaic acid", "url": "https://dermnetnz.org/topics/azelaic-acid" }],
-      "latest": { "it": "Scheda DermNet", "en": "DermNet review" }
+      "studies": {
+        "it": [],
+        "en": []
+      },
+      "sources": [
+        {
+          "title": "DermNet — azelaic acid",
+          "url": "https://dermnetnz.org/topics/azelaic-acid"
+        }
+      ],
+      "latest": {
+        "it": "Scheda DermNet",
+        "en": "DermNet review"
+      }
     },
     {
       "id": "benzoyl_peroxide",
-      "name": { "it": "Perossido di benzoile", "en": "Benzoyl peroxide" },
-      "synonyms": ["BPO"],
-      "inci": ["Benzoyl Peroxide"],
-      "categories": ["drugs", "blemishes"],
+      "name": {
+        "it": "Perossido di benzoile",
+        "en": "Benzoyl peroxide"
+      },
+      "synonyms": [
+        "BPO"
+      ],
+      "inci": [
+        "Benzoyl Peroxide"
+      ],
+      "categories": [
+        "drugs",
+        "blemishes"
+      ],
       "drug": true,
       "what": {
         "it": "Riduce batteri e lieviti sulla pelle, aiuta a liberare i pori e calma l'infiammazione dell'acne. Non crea resistenza nei batteri, a differenza degli antibiotici. In UE non è ammesso nei cosmetici per la pelle: si trova come farmaco da banco, in farmacia.",
@@ -707,281 +1553,758 @@
         "en": "Some dryness is normal: a light moisturiser helps. It bleaches fabrics: let it dry fully before it touches clothes, towels or sheets."
       },
       "studies": {
-        "it": ["2,5%, 5% e 10% ugualmente efficaci sull'acne infiammata; più effetti indesiderati con le concentrazioni alte"],
-        "en": ["2.5%, 5% and 10% equally effective on inflamed acne; more side effects at higher concentrations"]
+        "it": [
+          "2,5%, 5% e 10% ugualmente efficaci sull'acne infiammata; più effetti indesiderati con le concentrazioni alte"
+        ],
+        "en": [
+          "2.5%, 5% and 10% equally effective on inflamed acne; more side effects at higher concentrations"
+        ]
       },
       "sources": [
-        { "title": "DermNet — benzoyl peroxide", "url": "https://dermnetnz.org/topics/benzoyl-peroxide" },
-        { "title": "J Drugs Dermatol — efficacy and tolerability", "url": "https://jddonline.com/articles/dermatology/S1545961609P0657X" },
-        { "title": "EU Annex III, entry 94", "url": "https://cosingchecker.com/annex/iii/iii-94-benzoyl-peroxide" }
+        {
+          "title": "DermNet — benzoyl peroxide",
+          "url": "https://dermnetnz.org/topics/benzoyl-peroxide"
+        },
+        {
+          "title": "J Drugs Dermatol — efficacy and tolerability",
+          "url": "https://jddonline.com/articles/dermatology/S1545961609P0657X"
+        },
+        {
+          "title": "EU Annex III, entry 94",
+          "url": "https://cosingchecker.com/annex/iii/iii-94-benzoyl-peroxide"
+        }
       ],
-      "latest": { "it": "2009", "en": "2009" }
+      "latest": {
+        "it": "2009",
+        "en": "2009"
+      }
     },
     {
       "id": "tretinoin",
-      "name": { "it": "Tretinoina", "en": "Tretinoin" },
-      "synonyms": ["acido retinoico", "retinoic acid", "acido all-trans-retinoico", "all-trans retinoic acid"],
+      "name": {
+        "it": "Tretinoina",
+        "en": "Tretinoin"
+      },
+      "synonyms": [
+        "acido retinoico",
+        "retinoic acid",
+        "acido all-trans-retinoico",
+        "all-trans retinoic acid"
+      ],
       "inci": [],
-      "categories": ["drugs", "retinoids"],
+      "categories": [
+        "drugs",
+        "retinoids"
+      ],
       "drug": true,
       "what": {
         "it": "È la forma attiva della vitamina A, quella in cui retinolo e retinale si trasformano nella pelle. È un farmaco: si usa su prescrizione medica.",
         "en": "It's the active form of vitamin A, the one retinol and retinal turn into in the skin. It's a medicine: used on prescription."
       },
-      "percentages": { "it": "", "en": "" },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "",
+        "en": ""
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "Tra i retinoidi è il più irritante. Rende la pelle più sensibile al sole. I retinoidi sono pericolosi in gravidanza.",
         "en": "It's the most irritating retinoid. It makes skin more sensitive to the sun. Retinoids are dangerous in pregnancy."
       },
-      "studies": { "it": [], "en": [] },
-      "sources": [{ "title": "DermNet — topical retinoids", "url": "https://dermnetnz.org/topics/topical-retinoids" }],
-      "latest": { "it": "Scheda DermNet", "en": "DermNet review" }
+      "studies": {
+        "it": [],
+        "en": []
+      },
+      "sources": [
+        {
+          "title": "DermNet — topical retinoids",
+          "url": "https://dermnetnz.org/topics/topical-retinoids"
+        }
+      ],
+      "latest": {
+        "it": "Scheda DermNet",
+        "en": "DermNet review"
+      }
     },
     {
       "id": "adapalene",
-      "name": { "it": "Adapalene", "en": "Adapalene" },
+      "name": {
+        "it": "Adapalene",
+        "en": "Adapalene"
+      },
       "synonyms": [],
       "inci": [],
-      "categories": ["drugs", "retinoids"],
+      "categories": [
+        "drugs",
+        "retinoids"
+      ],
       "drug": true,
       "what": {
         "it": "È un retinoide usato soprattutto per l'acne. È un farmaco: si usa su prescrizione o consiglio medico.",
         "en": "It's a retinoid used mainly for acne. It's a medicine: used on prescription or medical advice."
       },
-      "percentages": { "it": "", "en": "" },
-      "howto": { "it": "", "en": "" },
+      "percentages": {
+        "it": "",
+        "en": ""
+      },
+      "howto": {
+        "it": "",
+        "en": ""
+      },
       "warning": {
         "it": "Tra i retinoidi è il meno irritante. Rende comunque la pelle più sensibile al sole, e i retinoidi sono pericolosi in gravidanza.",
         "en": "It's the least irritating retinoid. It still makes skin more sensitive to the sun, and retinoids are dangerous in pregnancy."
       },
-      "studies": { "it": [], "en": [] },
-      "sources": [{ "title": "DermNet — topical retinoids", "url": "https://dermnetnz.org/topics/topical-retinoids" }],
-      "latest": { "it": "Scheda DermNet", "en": "DermNet review" }
+      "studies": {
+        "it": [],
+        "en": []
+      },
+      "sources": [
+        {
+          "title": "DermNet — topical retinoids",
+          "url": "https://dermnetnz.org/topics/topical-retinoids"
+        }
+      ],
+      "latest": {
+        "it": "Scheda DermNet",
+        "en": "DermNet review"
+      }
     }
   ],
   "pairs": [
     {
-      "a": ["vitamin_c"], "b": ["vitamin_e"], "level": "green", "basis": "studies",
-      "advice": { "it": "Insieme proteggono dai danni del sole meglio di ognuna da sola.", "en": "Together they protect against sun damage better than either alone." },
-      "sources": [{ "title": "Linus Pauling Institute", "url": "https://lpi.oregonstate.edu/node/1706" }]
+      "a": [
+        "vitamin_c"
+      ],
+      "b": [
+        "vitamin_e"
+      ],
+      "level": "green",
+      "basis": "studies",
+      "advice": {
+        "it": "Insieme proteggono dai danni del sole meglio di ognuna da sola.",
+        "en": "Together they protect against sun damage better than either alone."
+      },
+      "sources": [
+        {
+          "title": "Linus Pauling Institute",
+          "url": "https://lpi.oregonstate.edu/node/1706"
+        }
+      ]
     },
     {
-      "a": ["vitamin_c"], "b": ["niacinamide"], "level": "green", "basis": "experts",
-      "advice": { "it": "Il divieto è un vecchio mito: nessuna prova che perdano efficacia.", "en": "The ban is an old myth: there's no evidence they lose effectiveness." },
-      "sources": [{ "title": "Lab Muffin", "url": "https://labmuffin.com/common-questions-about-vitamin-c-video-collab-with-beck-wynta/" }]
+      "a": [
+        "vitamin_c"
+      ],
+      "b": [
+        "niacinamide"
+      ],
+      "level": "green",
+      "basis": "experts",
+      "advice": {
+        "it": "Il divieto è un vecchio mito: nessuna prova che perdano efficacia.",
+        "en": "The ban is an old myth: there's no evidence they lose effectiveness."
+      },
+      "sources": [
+        {
+          "title": "Lab Muffin",
+          "url": "https://labmuffin.com/common-questions-about-vitamin-c-video-collab-with-beck-wynta/"
+        }
+      ]
     },
     {
-      "a": ["niacinamide"], "b": ["retinol", "retinal"], "level": "green", "basis": "experts",
-      "advice": { "it": "Nessuna incompatibilità nota; niacinamide di giorno e retinoide la sera va bene.", "en": "No known incompatibility; niacinamide by day and the retinoid at night works well." },
-      "sources": [{ "title": "US Pharmacist", "url": "https://www.uspharmacist.com/article/exploring-combination-niacinamide-and-retinol-for-bolstering-dermatologic-health" }]
+      "a": [
+        "niacinamide"
+      ],
+      "b": [
+        "retinol",
+        "retinal"
+      ],
+      "level": "green",
+      "basis": "experts",
+      "advice": {
+        "it": "Nessuna incompatibilità nota; niacinamide di giorno e retinoide la sera va bene.",
+        "en": "No known incompatibility; niacinamide by day and the retinoid at night works well."
+      },
+      "sources": [
+        {
+          "title": "US Pharmacist",
+          "url": "https://www.uspharmacist.com/article/exploring-combination-niacinamide-and-retinol-for-bolstering-dermatologic-health"
+        }
+      ]
     },
     {
-      "a": ["vitamin_c"], "b": ["retinol", "retinal"], "level": "yellow", "basis": "experts",
-      "advice": { "it": "Vitamina C la mattina, retinoide la sera: insieme possono irritare e arrossare.", "en": "Vitamin C in the morning, the retinoid at night: together they can irritate and cause redness." },
-      "sources": [{ "title": "British Skin Foundation", "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why" }]
+      "a": [
+        "vitamin_c"
+      ],
+      "b": [
+        "retinol",
+        "retinal"
+      ],
+      "level": "yellow",
+      "basis": "experts",
+      "advice": {
+        "it": "Vitamina C la mattina, retinoide la sera: insieme possono irritare e arrossare.",
+        "en": "Vitamin C in the morning, the retinoid at night: together they can irritate and cause redness."
+      },
+      "sources": [
+        {
+          "title": "British Skin Foundation",
+          "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why"
+        }
+      ]
     },
     {
-      "a": ["vitamin_c"], "b": ["glycolic", "lactic", "mandelic"], "level": "yellow", "basis": "experts",
-      "advice": { "it": "Vitamina C la mattina, AHA la sera: insieme possono seccare e far spellare la pelle.", "en": "Vitamin C in the morning, AHAs at night: together they can dry and peel the skin." },
-      "sources": [{ "title": "British Skin Foundation", "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why" }]
+      "a": [
+        "vitamin_c"
+      ],
+      "b": [
+        "glycolic",
+        "lactic",
+        "mandelic"
+      ],
+      "level": "yellow",
+      "basis": "experts",
+      "advice": {
+        "it": "Vitamina C la mattina, AHA la sera: insieme possono seccare e far spellare la pelle.",
+        "en": "Vitamin C in the morning, AHAs at night: together they can dry and peel the skin."
+      },
+      "sources": [
+        {
+          "title": "British Skin Foundation",
+          "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why"
+        }
+      ]
     },
     {
-      "a": ["retinol", "retinal"], "b": ["glycolic", "lactic", "mandelic", "salicylic", "pha"], "level": "red", "basis": "experts",
-      "advice": { "it": "Mentre usi il retinoide, sospendi gli esfolianti: insieme irritano.", "en": "While you use the retinoid, pause exfoliants: together they irritate." },
-      "sources": [{ "title": "British Skin Foundation", "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why" }]
+      "a": [
+        "retinol",
+        "retinal"
+      ],
+      "b": [
+        "glycolic",
+        "lactic",
+        "mandelic",
+        "salicylic",
+        "pha"
+      ],
+      "level": "red",
+      "basis": "experts",
+      "advice": {
+        "it": "Mentre usi il retinoide, sospendi gli esfolianti: insieme irritano.",
+        "en": "While you use the retinoid, pause exfoliants: together they irritate."
+      },
+      "sources": [
+        {
+          "title": "British Skin Foundation",
+          "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why"
+        }
+      ]
     },
     {
-      "a": ["copper_peptides"], "b": ["vitamin_c"], "level": "yellow", "basis": "lab",
-      "advice": { "it": "In laboratorio il rame fa rovinare la vitamina C; non è dimostrato che succeda sulla pelle, ma per sicurezza usali in momenti diversi.", "en": "In the lab, copper breaks down vitamin C; it isn't proven to happen on skin, but to be safe use them at different times." },
-      "sources": [{ "title": "Zhou et al. 2016, RSC Advances", "url": "https://pubs.rsc.org/en/Content/ArticleLanding/2016/RA/C6RA02843H" }]
+      "a": [
+        "copper_peptides"
+      ],
+      "b": [
+        "vitamin_c"
+      ],
+      "level": "yellow",
+      "basis": "lab",
+      "advice": {
+        "it": "In laboratorio il rame fa rovinare la vitamina C; non è dimostrato che succeda sulla pelle, ma per sicurezza usali in momenti diversi.",
+        "en": "In the lab, copper breaks down vitamin C; it isn't proven to happen on skin, but to be safe use them at different times."
+      },
+      "sources": [
+        {
+          "title": "Zhou et al. 2016, RSC Advances",
+          "url": "https://pubs.rsc.org/en/Content/ArticleLanding/2016/RA/C6RA02843H"
+        }
+      ]
     },
     {
-      "a": ["glycolic", "lactic", "mandelic"], "b": ["sunscreen"], "level": "green", "basis": "studies_authorities",
-      "advice": { "it": "Anzi, servono insieme: gli AHA rendono la pelle più sensibile al sole, anche per una settimana dopo.", "en": "In fact, you need them together: AHAs make skin more sensitive to the sun, even for a week after." },
-      "sources": [{ "title": "FDA — AHA", "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids" }]
+      "a": [
+        "glycolic",
+        "lactic",
+        "mandelic"
+      ],
+      "b": [
+        "sunscreen"
+      ],
+      "level": "green",
+      "basis": "studies_authorities",
+      "advice": {
+        "it": "Anzi, servono insieme: gli AHA rendono la pelle più sensibile al sole, anche per una settimana dopo.",
+        "en": "In fact, you need them together: AHAs make skin more sensitive to the sun, even for a week after."
+      },
+      "sources": [
+        {
+          "title": "FDA — AHA",
+          "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids"
+        }
+      ]
     },
     {
-      "a": ["salicylic"], "b": ["sunscreen"], "level": "green", "basis": "authorities",
-      "advice": { "it": "Anzi, servono insieme: con i BHA serve proteggersi dal sole.", "en": "In fact, you need them together: use sun protection with BHAs." },
-      "sources": [{ "title": "FDA — BHA", "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/beta-hydroxy-acids" }]
+      "a": [
+        "salicylic"
+      ],
+      "b": [
+        "sunscreen"
+      ],
+      "level": "green",
+      "basis": "authorities",
+      "advice": {
+        "it": "Anzi, servono insieme: con i BHA serve proteggersi dal sole.",
+        "en": "In fact, you need them together: use sun protection with BHAs."
+      },
+      "sources": [
+        {
+          "title": "FDA — BHA",
+          "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/beta-hydroxy-acids"
+        }
+      ]
     },
     {
-      "a": ["retinol", "retinal"], "b": ["sunscreen"], "level": "green", "basis": "experts",
-      "advice": { "it": "Anzi, servono insieme: i retinoidi rendono la pelle più sensibile al sole.", "en": "In fact, you need them together: retinoids make skin more sensitive to the sun." },
-      "sources": [{ "title": "DermNet", "url": "https://dermnetnz.org/topics/topical-retinoids" }]
+      "a": [
+        "retinol",
+        "retinal"
+      ],
+      "b": [
+        "sunscreen"
+      ],
+      "level": "green",
+      "basis": "experts",
+      "advice": {
+        "it": "Anzi, servono insieme: i retinoidi rendono la pelle più sensibile al sole.",
+        "en": "In fact, you need them together: retinoids make skin more sensitive to the sun."
+      },
+      "sources": [
+        {
+          "title": "DermNet",
+          "url": "https://dermnetnz.org/topics/topical-retinoids"
+        }
+      ]
     },
     {
-      "a": ["vitamin_c"], "b": ["sunscreen"], "level": "green", "basis": "studies",
-      "advice": { "it": "La vitamina C aiuta contro i danni del sole ma non sostituisce la protezione.", "en": "Vitamin C helps against sun damage but doesn't replace sunscreen." },
-      "sources": [{ "title": "Al-Niaimi and Chiang 2017", "url": "https://jcadonline.com/topical-vitamin-c-and-the-skin-mechanisms-of-action-and-clinical-applications/" }]
+      "a": [
+        "vitamin_c"
+      ],
+      "b": [
+        "sunscreen"
+      ],
+      "level": "green",
+      "basis": "studies",
+      "advice": {
+        "it": "La vitamina C aiuta contro i danni del sole ma non sostituisce la protezione.",
+        "en": "Vitamin C helps against sun damage but doesn't replace sunscreen."
+      },
+      "sources": [
+        {
+          "title": "Al-Niaimi and Chiang 2017",
+          "url": "https://jcadonline.com/topical-vitamin-c-and-the-skin-mechanisms-of-action-and-clinical-applications/"
+        }
+      ]
     },
     {
-      "a": ["vitamin_e"], "b": ["sunscreen"], "level": "green", "basis": "studies",
-      "advice": { "it": "La vitamina E non filtra i raggi UVA: la protezione resta necessaria.", "en": "Vitamin E doesn't filter UVA rays: you still need sunscreen." },
-      "sources": [{ "title": "Linus Pauling Institute", "url": "https://lpi.oregonstate.edu/mic/micronutrients-health/skin-health/nutrient-index/vitamin-E" }]
+      "a": [
+        "vitamin_e"
+      ],
+      "b": [
+        "sunscreen"
+      ],
+      "level": "green",
+      "basis": "studies",
+      "advice": {
+        "it": "La vitamina E non filtra i raggi UVA: la protezione resta necessaria.",
+        "en": "Vitamin E doesn't filter UVA rays: you still need sunscreen."
+      },
+      "sources": [
+        {
+          "title": "Linus Pauling Institute",
+          "url": "https://lpi.oregonstate.edu/mic/micronutrients-health/skin-health/nutrient-index/vitamin-E"
+        }
+      ]
     }
   ],
   "myths": [
     {
-      "claim": { "it": "Il collagene nella crema ricostruisce il collagene della pelle", "en": "Collagen in a cream rebuilds the skin's collagen" },
+      "claim": {
+        "it": "Il collagene nella crema ricostruisce il collagene della pelle",
+        "en": "Collagen in a cream rebuilds the skin's collagen"
+      },
       "truth": {
         "it": "Falso. La molecola di collagene è enorme: non entra nella pelle fino allo strato dove si trova il collagene, e anche se ci arrivasse non potrebbe unirsi a quello esistente. Nella crema però fa qualcosa: trattiene acqua e forma un velo in superficie, quindi idrata e per un po' attenua le linee sottili. L'effetto è temporaneo.",
         "en": "False. The collagen molecule is huge: it doesn't get down to the layer where collagen lives, and even if it did, it couldn't join the existing collagen. But in a cream it does something: it holds water and forms a film on the surface, so it hydrates and temporarily softens fine lines."
       },
       "sources": [
-        { "title": "J Soc Cosmet Chem 1988", "url": "https://library.scconline.org/v039n05/5" },
-        { "title": "Dr Rachel Ho, citing Bos and Meinardi 2000", "url": "https://www.drrachelho.com/blog/collagen-skincare-cream-review/" }
+        {
+          "title": "J Soc Cosmet Chem 1988",
+          "url": "https://library.scconline.org/v039n05/5"
+        },
+        {
+          "title": "Dr Rachel Ho, citing Bos and Meinardi 2000",
+          "url": "https://www.drrachelho.com/blog/collagen-skincare-cream-review/"
+        }
       ]
     },
     {
-      "claim": { "it": "L'acido ialuronico è un acido che esfolia", "en": "Hyaluronic acid is an exfoliating acid" },
+      "claim": {
+        "it": "L'acido ialuronico è un acido che esfolia",
+        "en": "Hyaluronic acid is an exfoliating acid"
+      },
       "truth": {
         "it": "Falso. È una specie di zucchero lungo che la pelle produce già: trattiene acqua e non esfolia.",
         "en": "False. It's a kind of long sugar the skin already makes: it holds water and doesn't exfoliate."
       },
-      "sources": [{ "title": "Juncan et al. 2021, Molecules", "url": "https://www.mdpi.com/1420-3049/26/15/4429/htm" }]
+      "sources": [
+        {
+          "title": "Juncan et al. 2021, Molecules",
+          "url": "https://www.mdpi.com/1420-3049/26/15/4429/htm"
+        }
+      ]
     },
     {
-      "claim": { "it": "La niacinamide è un BHA", "en": "Niacinamide is a BHA" },
+      "claim": {
+        "it": "La niacinamide è un BHA",
+        "en": "Niacinamide is a BHA"
+      },
       "truth": {
         "it": "Falso. La niacinamide è la vitamina B3 e non esfolia. Il BHA della cosmetica è l'acido salicilico.",
         "en": "False. Niacinamide is vitamin B3 and doesn't exfoliate. The BHA in cosmetics is salicylic acid."
       },
       "sources": [
-        { "title": "DermNet — nicotinamide", "url": "https://dermnetnz.org/topics/nicotinamide" },
-        { "title": "FDA — BHA", "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/beta-hydroxy-acids" }
+        {
+          "title": "DermNet — nicotinamide",
+          "url": "https://dermnetnz.org/topics/nicotinamide"
+        },
+        {
+          "title": "FDA — BHA",
+          "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/beta-hydroxy-acids"
+        }
       ]
     },
     {
-      "claim": { "it": "Vitamina C e niacinamide non si possono usare insieme", "en": "Vitamin C and niacinamide can't be used together" },
+      "claim": {
+        "it": "Vitamina C e niacinamide non si possono usare insieme",
+        "en": "Vitamin C and niacinamide can't be used together"
+      },
       "truth": {
         "it": "Falso. È un consiglio di prudenza nato da ricerche vecchie: non ci sono prove che insieme funzionino meno.",
         "en": "False. It's a cautious tip based on old research: there's no evidence they work less well together."
       },
-      "sources": [{ "title": "Lab Muffin", "url": "https://labmuffin.com/common-questions-about-vitamin-c-video-collab-with-beck-wynta/" }]
+      "sources": [
+        {
+          "title": "Lab Muffin",
+          "url": "https://labmuffin.com/common-questions-about-vitamin-c-video-collab-with-beck-wynta/"
+        }
+      ]
     },
     {
-      "claim": { "it": "Più alta è la percentuale, più il prodotto funziona", "en": "The higher the percentage, the better it works" },
+      "claim": {
+        "it": "Più alta è la percentuale, più il prodotto funziona",
+        "en": "The higher the percentage, the better it works"
+      },
       "truth": {
         "it": "Falso. Il perossido di benzoile al 2,5%, al 5% e al 10% funziona allo stesso modo sull'acne, ma più alto dà più effetti indesiderati. La vitamina C sopra il 20% non dà benefici in più e può irritare. Per la niacinamide gli studi usano dal 2% al 5%.",
         "en": "False. Benzoyl peroxide at 2.5%, 5% and 10% works the same on acne, but higher causes more side effects. Vitamin C above 20% gives no extra benefit and can irritate. Niacinamide studies use 2% to 5%."
       },
       "sources": [
-        { "title": "J Drugs Dermatol", "url": "https://jddonline.com/articles/dermatology/S1545961609P0657X" },
-        { "title": "Al-Niaimi and Chiang 2017", "url": "https://jcadonline.com/topical-vitamin-c-and-the-skin-mechanisms-of-action-and-clinical-applications/" },
-        { "title": "DermNet — nicotinamide", "url": "https://dermnetnz.org/topics/nicotinamide" }
+        {
+          "title": "J Drugs Dermatol",
+          "url": "https://jddonline.com/articles/dermatology/S1545961609P0657X"
+        },
+        {
+          "title": "Al-Niaimi and Chiang 2017",
+          "url": "https://jcadonline.com/topical-vitamin-c-and-the-skin-mechanisms-of-action-and-clinical-applications/"
+        },
+        {
+          "title": "DermNet — nicotinamide",
+          "url": "https://dermnetnz.org/topics/nicotinamide"
+        }
       ]
     },
     {
-      "claim": { "it": "La vitamina E fa sparire le cicatrici", "en": "Vitamin E makes scars disappear" },
+      "claim": {
+        "it": "La vitamina E fa sparire le cicatrici",
+        "en": "Vitamin E makes scars disappear"
+      },
       "truth": {
         "it": "Falso. Negli studi sulle persone non ha migliorato le cicatrici, e a volte le ha peggiorate.",
         "en": "False. In studies in people it didn't improve scars, and sometimes made them worse."
       },
-      "sources": [{ "title": "Linus Pauling Institute", "url": "https://lpi.oregonstate.edu/mic/micronutrients-health/skin-health/nutrient-index/vitamin-E" }]
+      "sources": [
+        {
+          "title": "Linus Pauling Institute",
+          "url": "https://lpi.oregonstate.edu/mic/micronutrients-health/skin-health/nutrient-index/vitamin-E"
+        }
+      ]
     },
     {
-      "claim": { "it": "Esiste una protezione solare totale", "en": "Total sun protection exists" },
+      "claim": {
+        "it": "Esiste una protezione solare totale",
+        "en": "Total sun protection exists"
+      },
       "truth": {
         "it": "Falso. Nessuna crema protegge al 100%: in UE sono vietate scritte come \"protezione totale\" o \"schermo totale\", e la crema va rimessa.",
         "en": "False. No sunscreen protects 100%: in the EU, claims like \"total protection\" or \"sunblock\" are banned, and sunscreen must be reapplied."
       },
-      "sources": [{ "title": "EU Recommendation 2006/647", "url": "https://eur-lex.europa.eu/eli/reco/2006/647/oj/eng" }]
+      "sources": [
+        {
+          "title": "EU Recommendation 2006/647",
+          "url": "https://eur-lex.europa.eu/eli/reco/2006/647/oj/eng"
+        }
+      ]
     },
     {
-      "claim": { "it": "Basta guardare il numero SPF", "en": "The SPF number tells you everything" },
+      "claim": {
+        "it": "Basta guardare il numero SPF",
+        "en": "The SPF number tells you everything"
+      },
       "truth": {
         "it": "Falso. L'SPF indica la protezione dalle scottature. La protezione UVA si misura a parte: cerca il simbolo \"UVA\" nel cerchio.",
         "en": "False. SPF shows protection against sunburn. UVA protection is measured separately: look for the \"UVA\" symbol in a circle."
       },
-      "sources": [{ "title": "EU Recommendation 2006/647", "url": "https://eur-lex.europa.eu/eli/reco/2006/647/oj/eng" }]
+      "sources": [
+        {
+          "title": "EU Recommendation 2006/647",
+          "url": "https://eur-lex.europa.eu/eli/reco/2006/647/oj/eng"
+        }
+      ]
     },
     {
-      "claim": { "it": "SPF 50 protegge il doppio di SPF 30", "en": "SPF 50 protects twice as much as SPF 30" },
+      "claim": {
+        "it": "SPF 50 protegge il doppio di SPF 30",
+        "en": "SPF 50 protects twice as much as SPF 30"
+      },
       "truth": {
         "it": "Falso. SPF 15 filtra circa il 93% dei raggi UVB, SPF 30 circa il 97%, SPF 50 circa il 98%: tra 30 e 50 c'è solo un punto percentuale. Un SPF più alto aiuta soprattutto perché quasi tutti ne mettono meno del dovuto. Nessuna crema filtra il 100%.",
         "en": "False. SPF 15 filters about 93% of UVB rays, SPF 30 about 97%, SPF 50 about 98%: there's just one percentage point between 30 and 50. A higher SPF mainly helps because almost everyone applies less than they should. No sunscreen filters 100%."
       },
       "sources": [
-        { "title": "Skin Cancer Foundation", "url": "https://www.skincancer.org/press/the-skin-cancer-foundation-offers-tips-on-choosing-and-using-sunscreen/" },
-        { "title": "PolitiFact, with dermatologists M. Garshick and A. Adamson (2026)", "url": "https://www.politifact.com/article/2026/may/22/do-i-need-spf-30-50-or-100-we-answer-your-burning/" }
+        {
+          "title": "Skin Cancer Foundation",
+          "url": "https://www.skincancer.org/press/the-skin-cancer-foundation-offers-tips-on-choosing-and-using-sunscreen/"
+        },
+        {
+          "title": "PolitiFact, with dermatologists M. Garshick and A. Adamson (2026)",
+          "url": "https://www.politifact.com/article/2026/may/22/do-i-need-spf-30-50-or-100-we-answer-your-burning/"
+        }
       ]
     },
     {
-      "claim": { "it": "Un ingrediente economico non può funzionare", "en": "A cheap ingredient can't work" },
+      "claim": {
+        "it": "Un ingrediente economico non può funzionare",
+        "en": "A cheap ingredient can't work"
+      },
       "truth": {
         "it": "Falso. La glicerina costa pochissimo ma ha prove solide: idrata, rinforza la barriera e protegge dalle irritazioni.",
         "en": "False. Glycerin costs very little but has solid evidence: it hydrates, strengthens the barrier and protects against irritation."
       },
-      "sources": [{ "title": "Darlenski et al. 2008, British Journal of Dermatology", "url": "https://nutrition-evidence.com/article/115932/glycerol-and-the-skin-holistic-approach-to-its-origin-and-functions" }]
+      "sources": [
+        {
+          "title": "Darlenski et al. 2008, British Journal of Dermatology",
+          "url": "https://nutrition-evidence.com/article/115932/glycerol-and-the-skin-holistic-approach-to-its-origin-and-functions"
+        }
+      ]
     }
   ],
   "guides": {
     "inci": {
-      "title": { "it": "Come leggere l'INCI", "en": "How to read the INCI list" },
+      "title": {
+        "it": "Come leggere l'INCI",
+        "en": "How to read the INCI list"
+      },
       "intro": {
         "it": "L'INCI è la lista degli ingredienti sull'etichetta. In UE segue regole precise, e saperle leggere aiuta a capire cosa c'è davvero nel prodotto.",
         "en": "The INCI is the ingredient list on the label. In the EU it follows precise rules, and knowing them helps you understand what's really in a product."
       },
       "points": [
-        { "it": "L'ordine conta: gli ingredienti sono in ordine di quantità, dal più presente al meno presente.", "en": "Order matters: ingredients are listed by amount, from most to least." },
-        { "it": "Sotto l'1% l'ordine è libero: gli ingredienti presenti in meno dell'1% possono stare in qualsiasi ordine, in fondo alla lista. Quindi un attivo scritto verso la fine può essere davvero pochissimo.", "en": "Below 1% the order is free: ingredients under 1% can appear in any order at the end of the list. So an active listed near the end may be present in a very small amount." },
-        { "it": "Allergeni dei profumi: devono essere scritti per nome se superano lo 0,001% nei prodotti che restano sulla pelle, o lo 0,01% in quelli che si risciacquano. Dal 2023 la lista degli allergeni da considerare è passata da 24 a circa 80.", "en": "Fragrance allergens: they must be listed by name above 0.001% in leave-on products, or 0.01% in rinse-off products. Since 2023 the list of allergens to consider has grown from 24 to about 80." },
-        { "it": "Scadenza: se il prodotto dura più di 30 mesi, invece della data c'è il simbolo del barattolo aperto con un numero e una \"M\": i mesi in cui usarlo dopo l'apertura. Se dura meno, c'è la data, con la clessidra o la scritta \"da usarsi preferibilmente entro\".", "en": "Expiry: if the product lasts more than 30 months, instead of a date there's the open-jar symbol with a number and an \"M\": the months to use it after opening. If it lasts less, there's a date, with an hourglass or the words \"best used before the end of\"." }
+        {
+          "it": "L'ordine conta: gli ingredienti sono in ordine di quantità, dal più presente al meno presente.",
+          "en": "Order matters: ingredients are listed by amount, from most to least."
+        },
+        {
+          "it": "Sotto l'1% l'ordine è libero: gli ingredienti presenti in meno dell'1% possono stare in qualsiasi ordine, in fondo alla lista. Quindi un attivo scritto verso la fine può essere davvero pochissimo.",
+          "en": "Below 1% the order is free: ingredients under 1% can appear in any order at the end of the list. So an active listed near the end may be present in a very small amount."
+        },
+        {
+          "it": "Allergeni dei profumi: devono essere scritti per nome se superano lo 0,001% nei prodotti che restano sulla pelle, o lo 0,01% in quelli che si risciacquano. Dal 2023 la lista degli allergeni da considerare è passata da 24 a circa 80.",
+          "en": "Fragrance allergens: they must be listed by name above 0.001% in leave-on products, or 0.01% in rinse-off products. Since 2023 the list of allergens to consider has grown from 24 to about 80."
+        },
+        {
+          "it": "Scadenza: se il prodotto dura più di 30 mesi, invece della data c'è il simbolo del barattolo aperto con un numero e una \"M\": i mesi in cui usarlo dopo l'apertura. Se dura meno, c'è la data, con la clessidra o la scritta \"da usarsi preferibilmente entro\".",
+          "en": "Expiry: if the product lasts more than 30 months, instead of a date there's the open-jar symbol with a number and an \"M\": the months to use it after opening. If it lasts less, there's a date, with an hourglass or the words \"best used before the end of\"."
+        }
       ],
       "sources": [
-        { "title": "EU Regulation 1223/2009 (summary)", "url": "https://en.wikipedia.org/wiki/EC_Regulation_1223/2009_on_cosmetics" },
-        { "title": "CosmeticOBS — new allergens", "url": "https://cosmeticobs.com/en/articles/news-59/new-allergens-the-labelling-rules-7486" }
+        {
+          "title": "EU Regulation 1223/2009 (summary)",
+          "url": "https://en.wikipedia.org/wiki/EC_Regulation_1223/2009_on_cosmetics"
+        },
+        {
+          "title": "CosmeticOBS — new allergens",
+          "url": "https://cosmeticobs.com/en/articles/news-59/new-allergens-the-labelling-rules-7486"
+        }
       ]
     },
     "formats": {
-      "title": { "it": "I formati", "en": "Product formats" },
+      "title": {
+        "it": "I formati",
+        "en": "Product formats"
+      },
       "intro": {
         "it": "Il formato cambia quanto un prodotto idrata, dove usarlo e quanto può irritare.",
         "en": "The format changes how much a product hydrates, where to use it and how likely it is to irritate."
       },
       "items": [
         {
-          "name": { "it": "Unguento", "en": "Ointment" },
-          "made": { "it": "Quasi senza acqua, circa 80% olio", "en": "Almost no water, about 80% oil" },
-          "use": { "it": "Pelle molto secca e squamosa, mani e piedi", "en": "Very dry, scaly skin, hands and feet" },
-          "note": { "it": "Protegge e ammorbidisce molto, ma è unto. Non serve conservante, quindi le allergie sono rare. Da evitare nelle pieghe della pelle.", "en": "Very protective and softening, but greasy. It needs no preservative, so allergies are rare. Avoid in skin folds." }
+          "name": {
+            "it": "Unguento",
+            "en": "Ointment"
+          },
+          "made": {
+            "it": "Quasi senza acqua, circa 80% olio",
+            "en": "Almost no water, about 80% oil"
+          },
+          "use": {
+            "it": "Pelle molto secca e squamosa, mani e piedi",
+            "en": "Very dry, scaly skin, hands and feet"
+          },
+          "note": {
+            "it": "Protegge e ammorbidisce molto, ma è unto. Non serve conservante, quindi le allergie sono rare. Da evitare nelle pieghe della pelle.",
+            "en": "Very protective and softening, but greasy. It needs no preservative, so allergies are rare. Avoid in skin folds."
+          }
         },
         {
-          "name": { "it": "Crema", "en": "Cream" },
-          "made": { "it": "Metà olio e metà acqua", "en": "Half oil, half water" },
-          "use": { "it": "Uso generale, anche nelle pieghe della pelle", "en": "General use, including skin folds" },
-          "note": { "it": "Spesso idratante. Contiene conservanti, quindi più rischio di allergia rispetto all'unguento.", "en": "Often moisturising. It contains preservatives, so a higher allergy risk than ointments." }
+          "name": {
+            "it": "Crema",
+            "en": "Cream"
+          },
+          "made": {
+            "it": "Metà olio e metà acqua",
+            "en": "Half oil, half water"
+          },
+          "use": {
+            "it": "Uso generale, anche nelle pieghe della pelle",
+            "en": "General use, including skin folds"
+          },
+          "note": {
+            "it": "Spesso idratante. Contiene conservanti, quindi più rischio di allergia rispetto all'unguento.",
+            "en": "Often moisturising. It contains preservatives, so a higher allergy risk than ointments."
+          }
         },
         {
-          "name": { "it": "Lozione", "en": "Lotion" },
-          "made": { "it": "Più liquida della crema, con acqua o alcol e a volte olio", "en": "Runnier than a cream, with water or alcohol and sometimes oil" },
-          "use": { "it": "Zone con peli, pieghe della pelle", "en": "Hairy areas, skin folds" },
-          "note": { "it": "Può pizzicare.", "en": "It can sting." }
+          "name": {
+            "it": "Lozione",
+            "en": "Lotion"
+          },
+          "made": {
+            "it": "Più liquida della crema, con acqua o alcol e a volte olio",
+            "en": "Runnier than a cream, with water or alcohol and sometimes oil"
+          },
+          "use": {
+            "it": "Zone con peli, pieghe della pelle",
+            "en": "Hairy areas, skin folds"
+          },
+          "note": {
+            "it": "Può pizzicare.",
+            "en": "It can sting."
+          }
         },
         {
-          "name": { "it": "Gel", "en": "Gel" },
-          "made": { "it": "A base di acqua o alcol, si scioglie sulla pelle", "en": "Water or alcohol based, melts on the skin" },
-          "use": { "it": "Zone con peli", "en": "Hairy areas" },
-          "note": { "it": "Spesso contiene conservanti e profumi, che possono irritare.", "en": "Often contains preservatives and fragrances, which can irritate." }
+          "name": {
+            "it": "Gel",
+            "en": "Gel"
+          },
+          "made": {
+            "it": "A base di acqua o alcol, si scioglie sulla pelle",
+            "en": "Water or alcohol based, melts on the skin"
+          },
+          "use": {
+            "it": "Zone con peli",
+            "en": "Hairy areas"
+          },
+          "note": {
+            "it": "Spesso contiene conservanti e profumi, che possono irritare.",
+            "en": "Often contains preservatives and fragrances, which can irritate."
+          }
         },
         {
-          "name": { "it": "Schiuma", "en": "Foam" },
-          "made": { "it": "Una soluzione spruzzata con gas", "en": "A solution sprayed with gas" },
-          "use": { "it": "Zone con peli", "en": "Hairy areas" },
-          "note": { "it": "", "en": "" }
+          "name": {
+            "it": "Schiuma",
+            "en": "Foam"
+          },
+          "made": {
+            "it": "Una soluzione spruzzata con gas",
+            "en": "A solution sprayed with gas"
+          },
+          "use": {
+            "it": "Zone con peli",
+            "en": "Hairy areas"
+          },
+          "note": {
+            "it": "",
+            "en": ""
+          }
         }
       ],
       "serumToner": {
         "it": "Siero e tonico: nelle fonti mediche non sono un formato a sé. Sono nomi commerciali: quello che conta è cosa c'è dentro, non come si chiama.",
         "en": "Serum and toner: medical sources don't treat them as formats of their own. They're marketing names: what matters is what's inside, not what it's called."
       },
-      "sources": [{ "title": "DermNet — topical formulations", "url": "https://dermnetnz.org/topics/topical-formulations" }]
+      "sources": [
+        {
+          "title": "DermNet — topical formulations",
+          "url": "https://dermnetnz.org/topics/topical-formulations"
+        }
+      ]
     }
   },
   "disclaimer": {
     "it": "Blendie dà informazioni basate su fonti scientifiche e non sostituisce il parere di un medico, di un dermatologo o di un farmacista.",
     "en": "Blendie gives information based on scientific sources and doesn't replace advice from a doctor, dermatologist or pharmacist."
+  },
+  "about": {
+    "what": {
+      "it": "Blendie ti dice se due ingredienti skincare si possono usare insieme. Ogni risultato mostra un livello, un consiglio pratico, su cosa si basa e le fonti, così puoi controllare tutto da sola.",
+      "en": "Blendie tells you whether two skincare ingredients can be used together. Every result shows a level, practical advice, what it's based on and the sources, so you can check everything yourself."
+    },
+    "sourcesRules": {
+      "it": "Ogni frase di Blendie ha una fonte affidabile: studi scientifici, siti medici o autorità sanitarie. I siti dei brand non contano come fonte. Se una cosa non è supportata da una fonte, non la scriviamo. Ogni scheda viene ricontrollata regolarmente.",
+      "en": "Every sentence in Blendie has a reliable source: scientific studies, medical sites or health authorities. Brand websites don't count as sources. If something isn't supported by a source, we don't write it. Every card is checked again regularly."
+    },
+    "basisNote": {
+      "it": "La riga \"Basato su\" ti dice quanto pesa ogni risultato: uno studio vale più del parere di un esperto, e uno studio di laboratorio non dimostra che lo stesso succeda sulla pelle.",
+      "en": "The \"Based on\" line tells you how much weight each result carries: a study counts for more than expert opinion, and a lab study doesn't prove the same thing happens on skin."
+    },
+    "drugsNote": {
+      "it": "Per i farmaci Blendie ha solo schede informative, senza abbinamenti: per quelli decide il medico o il farmacista.",
+      "en": "For medicines Blendie only has information cards, with no pairings: for those, your doctor or pharmacist decides."
+    }
+  },
+  "privacy": {
+    "title": {
+      "it": "Privacy",
+      "en": "Privacy"
+    },
+    "points": [
+      {
+        "it": "Blendie non ha account e non raccoglie dati personali.",
+        "en": "Blendie has no accounts and doesn't collect personal data."
+      },
+      {
+        "it": "I tuoi prodotti, i preferiti e la lingua scelta restano solo su questo dispositivo. Se cancelli i dati del browser o cambi telefono, non si recuperano.",
+        "en": "Your products, favourites and chosen language stay only on this device. If you clear your browser data or change phone, they can't be recovered."
+      },
+      {
+        "it": "Contiamo le visite in modo anonimo con GoatCounter, senza cookie e senza seguirti tra i siti.",
+        "en": "We count visits anonymously with GoatCounter, without cookies and without tracking you across sites."
+      },
+      {
+        "it": "I font e tutti i file dell'app sono dentro l'app stessa: aprirla non manda dati a Google o ad altri servizi.",
+        "en": "Fonts and all app files are inside the app itself: opening it doesn't send data to Google or other services."
+      }
+    ]
   }
 }
