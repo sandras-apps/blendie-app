@@ -8,7 +8,7 @@ import { hasSeenWelcome } from './storage.js';
 import { renderWelcome } from './views/welcome.js';
 import { renderCompare } from './views/compare.js';
 import { renderIngredients, renderIngredient } from './views/ingredients.js';
-import { renderProducts } from './views/products.js';
+import { renderProducts, renderProduct } from './views/products.js';
 import { renderFavorites } from './views/favorites.js';
 import { renderMore } from './views/more.js';
 import { renderMyths } from './views/myths.js';
@@ -31,6 +31,7 @@ const routes = {
   ingredients: { tab: 'ingredients', title: 'title.ingredients', render: renderIngredients },
   ingredient: { tab: 'ingredients', title: 'title.ingredient', parent: 'ingredients', render: renderIngredient },
   products: { tab: 'products', title: 'title.products', render: renderProducts },
+  product: { tab: 'products', title: 'products.add', parent: 'products', render: renderProduct },
   favorites: { tab: 'favorites', title: 'title.favorites', render: renderFavorites },
   more: { tab: 'more', title: 'title.more', render: renderMore },
   myths: { tab: 'more', title: 'title.myths', parent: 'more', render: renderMyths },

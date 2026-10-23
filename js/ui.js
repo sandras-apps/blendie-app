@@ -25,10 +25,11 @@ export function soon(titleKey) {
 
 // Pagina vuota (Preferiti, I miei prodotti): mascotte sopra il testo che spiega cosa fare.
 // La mascotte si usa solo qui e nel benvenuto, mai nel risultato.
-export function emptyState(textKey) {
+export function emptyState(textKey, actionHtml = '') {
   return `<div class="empty-state">
     <img class="empty-mascot" src="assets/mascot/empty.png" alt="${esc(t('empty.alt'))}" width="160" height="160">
     <p>${esc(t(textKey))}</p>
+    ${actionHtml ? `<div class="empty-action">${actionHtml}</div>` : ''}
   </div>`;
 }
 
@@ -57,6 +58,16 @@ export function withData(main, draw) {
       main.querySelector('button').addEventListener('click', () => withData(main, draw));
     },
   );
+}
+
+// Elenco delle fonti: link che si aprono in una nuova scheda.
+export function sourcesList(sources) {
+  return `<ul class="sources">${(sources || []).map((source) => {
+    const safe = /^https?:\/\//i.test(source.url || '');
+    return `<li>${safe
+      ? `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}<span class="visually-hidden"> ${esc(t('newTab'))}</span>${icon('external', 'icon icon-small')}</a>`
+      : esc(source.title)}</li>`;
+  }).join('')}</ul>`;
 }
 
 // Etichetta "Farmaco" per gli ingredienti con drug: true.

@@ -45,3 +45,28 @@ export function hasSeenWelcome() {
 export function markWelcomeSeen() {
   write('welcomeSeen', true);
 }
+
+// Preferiti: singoli ingredienti (id) e abbinamenti (coppie di id).
+// Gli ultimi salvati stanno in cima.
+function loadFavorites() {
+  const saved = read('favorites', null) || {};
+  return {
+    ingredients: Array.isArray(saved.ingredients) ? saved.ingredients : [],
+    pairs: Array.isArray(saved.pairs) ? saved.pairs : [],
+  };
+}
+
+export function isFavoriteIngredient(id) {
+  return loadFavorites().ingredients.includes(id);
+}
+
+// Aggiunge o toglie l'ingrediente dai preferiti; restituisce true se ora è salvato.
+export function toggleFavoriteIngredient(id) {
+  const favorites = loadFavorites();
+  const saved = favorites.ingredients.includes(id);
+  favorites.ingredients = saved
+    ? favorites.ingredients.filter((other) => other !== id)
+    : [id, ...favorites.ingredients];
+  write('favorites', favorites);
+  return !saved;
+}

@@ -2,8 +2,9 @@
 // (la scheda si costruisce nel passo "Scheda").
 import { t, pick, getLang } from '../i18n.js';
 import { icon } from '../icons.js';
-import { esc, pageTitle, soon, withData, drugBadge } from '../ui.js';
-import { matchIngredient, normalize } from '../data.js';
+import { esc, pageTitle, withData, drugBadge, sourcesList } from '../ui.js';
+import { matchIngredient, normalize, getIngredient } from '../data.js';
+import { isFavoriteIngredient, toggleFavoriteIngredient } from '../storage.js';
 
 // Ricerca e filtro restano come li hai lasciati quando torni all'elenco.
 const state = { query: '', category: 'all' };
@@ -82,11 +83,96 @@ export function renderIngredients(main) {
     });
 
     update();
-    const active = main.querySelector('.chip[aria-pressed="true"]');
-    if (active && state.category !== 'all') active.scrollIntoView({ block: 'nearest', inline: 'center' });
   });
 }
 
-export function renderIngredient(main) {
-  main.innerHTML = soon('title.ingredient');
+// Una sezione della scheda; se il testo è vuoto, la sezione non si mostra.
+function section(titleKey, text, { className = '', iconName = '' } = {}) {
+  if (!text) return '';
+  return `<section class="card card-section ${className}">
+    <h2 class="section-title">${iconName ? icon(iconName) : ''}${esc(t(titleKey))}</h2>
+    <p>${esc(text)}</p>
+  </section>`;
+}
+
+function favoriteButton(saved) {
+  return `${icon('heart', saved ? 'icon icon-filled' : 'icon')}<span>${esc(t(saved ? 'card.saved' : 'card.save'))}</span>`;
+}
+
+export function renderIngredient(main, { args }) {
+  withData(main, (data) => {
+    const ing = getIngredient(args[0]);
+    if (!ing) {
+      main.innerHTML = `${pageTitle(t('title.ingredient'))}
+        <div class="card status-message">
+          <p>${esc(t('card.notFound'))}</p>
+          <a class="btn btn-primary" href="#/ingredients">${esc(t('card.toList'))}</a>
+        </div>`;
+      return;
+    }
+
+    const name = pick(ing.name);
+    document.title = `${name} · ${t('app.name')}`;
+
+    const categoryNames = new Map(data.categories.map((c) => [c.id, pick(c)]));
+    const tags = ing.categories.map((c) => categoryNames.get(c)).filter(Boolean);
+
+    // I sinonimi uguali al nome (es. "squalane" per Squalane) non si ripetono.
+    const ownNames = new Set([normalize(ing.name.it), normalize(ing.name.en)]);
+    const synonyms = (ing.synonyms || []).filter((s) => !ownNames.has(normalize(s)));
+    const inci = ing.inci || [];
+
+    const drug = data.levels.drug;
+    const studies = pick(ing.studies) || [];
+    const saved = isFavoriteIngredient(ing.id);
+
+    main.innerHTML = `
+      <header class="ingredient-header">
+        ${pageTitle(name)}
+        ${ing.drug ? drugBadge() : ''}
+        ${tags.length ? `<ul class="tags">${tags.map((tag) => `<li class="tag">${esc(tag)}</li>`).join('')}</ul>` : ''}
+      </header>
+
+      ${ing.notAcid ? `<div class="callout callout-highlight"><p>${esc(pick(ing.notAcid))}</p></div>` : ''}
+
+      ${ing.drug ? `<div class="callout callout-drug" style="background:${esc(drug.tint)};color:${esc(drug.text)};border-color:${esc(drug.color)}">
+        ${icon('pill')}<p>${esc(pick(drug.note))}</p>
+      </div>` : ''}
+
+      ${synonyms.length || inci.length ? `<dl class="card names">
+        ${synonyms.length ? `<div><dt>${esc(t('card.otherNames'))}</dt><dd>${esc(synonyms.join(', '))}</dd></div>` : ''}
+        ${inci.length ? `<div><dt>${esc(t('card.inci'))}</dt><dd>${esc(inci.join(', '))}</dd></div>` : ''}
+      </dl>` : ''}
+
+      ${section('card.what', pick(ing.what))}
+      ${section('card.percentages', pick(ing.percentages))}
+      ${section('card.howto', pick(ing.howto))}
+      ${section('card.warning', pick(ing.warning), { className: 'card-warning', iconName: 'alert' })}
+
+      ${studies.length ? `<details class="card details">
+        <summary class="section-title">${esc(t('card.studies'))} (${studies.length})</summary>
+        <ul class="studies">${studies.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+      </details>` : ''}
+
+      <section class="card card-section">
+        <h2 class="section-title">${esc(t('card.sources'))}</h2>
+        ${sourcesList(ing.sources)}
+        ${pick(ing.latest) ? `<p class="latest"><strong>${esc(t('card.latest'))}:</strong> ${esc(pick(ing.latest))}</p>` : ''}
+      </section>
+
+      <div class="actions">
+        ${ing.drug ? '' : `<a class="btn btn-primary" href="#/compare?a=${encodeURIComponent(ing.id)}">${icon('blend')}${esc(t('card.compare'))}</a>`}
+        <button class="btn btn-secondary" type="button" id="favorite">${favoriteButton(saved)}</button>
+      </div>
+      <p class="visually-hidden" aria-live="polite" id="favorite-status"></p>`;
+
+    // Il testo del bottone cambia ("Salvato nei preferiti") e viene letto
+    // anche da chi usa un lettore di schermo.
+    const favorite = main.querySelector('#favorite');
+    favorite.addEventListener('click', () => {
+      const now = toggleFavoriteIngredient(ing.id);
+      favorite.innerHTML = favoriteButton(now);
+      main.querySelector('#favorite-status').textContent = t(now ? 'card.saved' : 'card.save');
+    });
+  });
 }

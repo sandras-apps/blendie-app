@@ -9,9 +9,14 @@ const paths = {
   more: '<circle cx="5.5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18.5" cy="12" r="1.2"/>',
 
   // Navigazione
+  plus: '<path d="M12 5v14"/><path d="M5 12h14"/>',
   search: '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>',
   back: '<path d="M15 18l-6-6 6-6"/>',
   chevron: '<path d="M9 18l6-6-6-6"/>',
+
+  // Scheda
+  external: '<path d="M14 4.5h5.5V10"/><path d="M19.5 4.5L11 13"/><path d="M17.5 13.5v4.5a1.5 1.5 0 0 1-1.5 1.5H6a1.5 1.5 0 0 1-1.5-1.5V8A1.5 1.5 0 0 1 6 6.5h4.5"/>',
+  alert: '<path d="M12 4l9 15.5H3z"/><path d="M12 10v4.5"/><path d="M12 17.2v.1"/>',
 
   // Farmaci
   pill: '<g transform="rotate(-45 12 12)"><rect x="2.6" y="8.3" width="18.8" height="7.4" rx="3.7"/><path d="M12 8.3H6.3a3.7 3.7 0 0 0 0 7.4H12z" fill="currentColor"/></g>',

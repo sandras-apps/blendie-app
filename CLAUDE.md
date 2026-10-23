@@ -38,9 +38,16 @@ Trova un ingrediente cercando nel nome IT e EN, nei sinonimi e nei nomi INCI. Se
 
 1. **Home (Confronta)**: due campi "Ingrediente 1" e "Ingrediente 2" con ricerca, e il bottone "Controlla".
 2. **Risultato**: il livello (cerchio colorato + icona + testo, mai solo il colore), il consiglio, la riga "Basato su", le fonti cliccabili e il disclaimer in piccolo. Bottone per salvare l'abbinamento nei Preferiti.
-3. **Ingredienti**: tutti gli ingredienti in **ordine alfabetico**, con il nome più diffuso nella lingua scelta. Lente di ricerca in alto e filtri per categoria (chip), es. "Barriera e idratazione", "Esfolianti (acidi)". I farmaci hanno un'etichetta "Farmaco".
-4. **Scheda ingrediente**: categorie, sinonimi e INCI, Cosa fa, Percentuali, Come usarlo, Attenzione, poi **"Gli studi" in una tendina chiusa** (`<details>`), fonti, "Studio più recente". Bottone "Controlla un abbinamento" (apre la Home con questo ingrediente già scelto) e bottone per salvarlo nei Preferiti. Per i farmaci: niente bottone di abbinamento, solo la nota di `levels.drug`.
-5. **I miei prodotti** (salvati sul dispositivo): l'utente scrive il nome di un prodotto (es. "Siero The Ordinary Niacinamide") e sceglie quali ingredienti attivi contiene, solo tra quelli della lista. Può modificare e cancellare i prodotti (con conferma prima di cancellare). Toccando un ingrediente del prodotto si apre Confronta con quell'ingrediente già scelto, e l'utente sceglie il secondo.
+3. **Ingredienti**: tutti gli ingredienti in **ordine alfabetico**, con il nome più diffuso nella lingua scelta. Lente di ricerca in alto e filtri per categoria (chip), es. "Barriera e idratazione", "Esfolianti (acidi)". I filtri vanno a capo su più righe, così si vedono tutti senza scorrere. I farmaci hanno un'etichetta "Farmaco".
+4. **Scheda ingrediente**: categorie, sinonimi e INCI, Cosa fa, Percentuali, Come usarlo, Attenzione, poi **"Gli studi" in una tendina chiusa** (`<details>`), fonti, "Fonte più recente" / "Latest source" (campo `latest`). Bottone "Controlla un abbinamento" (apre la Home con questo ingrediente già scelto) e bottone per salvarlo nei Preferiti. Per i farmaci: niente bottone di abbinamento, solo la nota di `levels.drug`.
+5. **I miei prodotti** (salvati sul dispositivo): serve solo per ricordare quali principi attivi si stanno già usando. Niente nome, niente brand, niente foto. Ogni prodotto ha:
+   - **Tipo di prodotto**, da una lista: detergente, tonico, siero, crema, gel, olio, maschera, contorno occhi, protezione solare, altro (IT + EN: cleanser, toner, serum, cream, gel, oil, mask, eye cream, sunscreen, other).
+   - **Principi attivi principali**, scelti solo dalla lista degli ingredienti (almeno uno).
+   - **Quando lo uso**: mattina, sera, mattina e sera.
+
+   Nell'elenco ogni prodotto si mostra così: "Siero · Sera · Retinolo, Niacinamide". Si può modificare e cancellare (con conferma prima di cancellare). Toccando un ingrediente del prodotto si apre Confronta con quell'ingrediente già scelto, e l'utente sceglie il secondo; se l'ingrediente è un farmaco, si apre invece la sua scheda.
+
+   Pagina vuota: Coco (`empty.png`), il testo "Non hai ancora salvato prodotti. Aggiungi il primo: scegli il tipo di prodotto, i principi attivi che contiene e quando lo usi." / "You haven't saved any products yet. Add your first one: choose the product type, the active ingredients it contains and when you use it." e sotto un bottone ben visibile "Aggiungi prodotto" / "Add product".
 6. **Preferiti** (salvati sul dispositivo): abbinamenti e singoli ingredienti salvati, anche quelli che l'utente non usa ancora.
 7. **Falsi miti**: una scheda per mito (cosa si dice, cosa è vero, fonti).
 8. **Guide**: "Come leggere l'INCI" e "I formati" (tabella).
