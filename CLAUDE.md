@@ -75,6 +75,12 @@ Font: **Baloo 2** per i titoli, **Nunito** per il testo, con fallback di sistema
 
 Logo: un coccodrillo con fette di cetriolo sugli occhi e bigodini. Versione trasparente per il logo dentro l'app; versione con sfondo crema per le icone del telefono (su iPhone le icone trasparenti diventano nere), con margine per le icone Android che vengono ritagliate.
 
+Mascotte (`assets/mascot/`, coccodrillo con bigodini, sfondo trasparente). Si usa **solo** in questi due momenti:
+- `welcome.png` (saluta e sbircia da sotto il cetriolo): schermata di benvenuto, solo alla prima apertura dell'app. Testo "Ciao! Scegli due ingredienti e ti dico se vanno d'accordo." / "Hi! Pick two ingredients and I'll tell you if they get along." e bottone "Iniziamo" / "Let's start", che porta a Confronta.
+- `empty.png` (con il barattolo di crema): pagine vuote di Preferiti e I miei prodotti, sopra il testo che spiega come aggiungere il primo elemento.
+
+Mai nella schermata del risultato: lì parlano solo la scienza e le fonti. Ogni immagine della mascotte ha sempre un testo alternativo per chi usa un lettore di schermo.
+
 Accessibilità: il risultato non deve mai dipendere solo dal colore (colore + icona + testo), contrasto leggibile, focus visibile, bottoni grandi abbastanza per il pollice.
 
 ## 7. PWA e offline

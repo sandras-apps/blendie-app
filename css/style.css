@@ -207,10 +207,124 @@ button {
   color: var(--muted);
 }
 
+.card-title {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
 .hero-logo {
   width: 112px;
   height: 112px;
   margin: 8px auto 12px;
+}
+
+/* ---------- Bottoni ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--lilac);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+  background: #DFC8F8;
+}
+
+.btn-wide {
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Scelta tra due opzioni (es. lingua) */
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg);
+  border-radius: 999px;
+}
+
+.segment span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.segment input:checked + span {
+  background: var(--lilac);
+  font-weight: 800;
+  box-shadow: 0 1px 3px rgba(91, 75, 67, 0.12);
+}
+
+.segment input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Mascotte ---------- */
+
+.welcome {
+  min-height: calc(100vh - 48px);
+  min-height: calc(100dvh - 48px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 8px;
+}
+
+.welcome-mascot {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 8px;
+}
+
+.welcome-brand {
+  font-size: 40px;
+  margin: 0;
+}
+
+.welcome-text {
+  font-size: 20px;
+  font-weight: 600;
+  max-width: 22em;
+  margin: 8px 0 28px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 16px 8px;
+}
+
+.empty-mascot {
+  width: 160px;
+  height: 160px;
+  margin: 8px auto 16px;
+}
+
+.empty-state p {
+  max-width: 24em;
+  margin: 0 auto;
 }
 
 /* Elenco di link (schermata Altro) */
@@ -316,6 +430,17 @@ button {
 
 .tab[aria-current="page"] .tab-icon {
   background: var(--lilac);
+}
+
+/* Schermata senza barre (benvenuto) */
+.is-bare .topbar,
+.is-bare .tabbar {
+  display: none;
+}
+
+.is-bare .page {
+  padding-top: calc(var(--safe-top) + 24px);
+  padding-bottom: calc(var(--safe-bottom) + 24px);
 }
 
 .noscript {

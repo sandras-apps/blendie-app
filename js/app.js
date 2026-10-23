@@ -4,6 +4,8 @@
 import { t, getLang } from './i18n.js';
 import { icon } from './icons.js';
 import { esc } from './ui.js';
+import { hasSeenWelcome } from './storage.js';
+import { renderWelcome } from './views/welcome.js';
 import { renderCompare } from './views/compare.js';
 import { renderIngredients, renderIngredient } from './views/ingredients.js';
 import { renderProducts } from './views/products.js';
@@ -21,8 +23,10 @@ const tabs = [
   { id: 'more', icon: 'more' },
 ];
 
-// tab: quale voce della barra in basso è accesa; parent: dove porta "Indietro"
+// tab: quale voce della barra in basso è accesa; parent: dove porta "Indietro";
+// bare: schermata senza barre (solo il benvenuto)
 const routes = {
+  welcome: { bare: true, title: 'app.name', render: renderWelcome },
   compare: { tab: 'compare', title: 'title.compare', render: renderCompare },
   ingredients: { tab: 'ingredients', title: 'title.ingredients', render: renderIngredients },
   ingredient: { tab: 'ingredients', title: 'title.ingredient', parent: 'ingredients', render: renderIngredient },
@@ -97,7 +101,7 @@ function renderTabbar(route) {
     </a></li>`).join('')}</ul>`;
 }
 
-export function render() {
+function render({ keepFocusId = null } = {}) {
   const { name, args, query } = parseHash();
   const route = routes[name];
   if (!route) {
@@ -108,14 +112,27 @@ export function render() {
   current = route;
 
   document.documentElement.lang = getLang();
-  document.title = name === 'compare' ? t('app.name') : `${t(route.title)} · ${t('app.name')}`;
-  renderTopbar(route);
-  renderTabbar(route);
+  document.title = route.title === 'app.name' || name === 'compare' ? t('app.name') : `${t(route.title)} · ${t('app.name')}`;
+  document.body.classList.toggle('is-bare', Boolean(route.bare));
+  if (route.bare) {
+    topbar.innerHTML = '';
+    tabbar.innerHTML = '';
+  } else {
+    renderTopbar(route);
+    renderTabbar(route);
+  }
 
   main.innerHTML = '';
   route.render(main, { args, query });
-  window.scrollTo(0, 0);
 
+  // Cambio di lingua: si resta dov'eri, con il focus sullo stesso elemento.
+  const keep = keepFocusId && document.getElementById(keepFocusId);
+  if (keep) {
+    keep.focus({ preventScroll: true });
+    return;
+  }
+
+  window.scrollTo(0, 0);
   // Dopo un cambio di pagina il focus va sul titolo, così chi usa
   // un lettore di schermo sente subito dove si trova.
   if (!firstRender) {
@@ -130,7 +147,14 @@ window.addEventListener('hashchange', () => {
   render();
 });
 
-if (!location.hash) {
+window.addEventListener('langchange', () => {
+  render({ keepFocusId: document.activeElement && document.activeElement.id });
+});
+
+// Prima apertura: se si arriva su Confronta, si mostra il benvenuto.
+if (!hasSeenWelcome() && parseHash().name === 'compare') {
+  history.replaceState({ depth: 0 }, '', '#/welcome');
+} else if (!location.hash) {
   history.replaceState({ depth: 0 }, '', '#/compare');
 } else if (!history.state || typeof history.state.depth !== 'number') {
   history.replaceState({ depth: 0 }, '');
