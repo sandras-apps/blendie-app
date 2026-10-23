@@ -700,13 +700,16 @@ button {
   cursor: pointer;
 }
 
+/* Cuore pieno: rosa della palette con il contorno marrone, come il logo.
+   Il rosso è riservato a "Non vanno d'accordo". */
 .heart-button[aria-pressed="true"] {
-  background: var(--pink);
+  box-shadow: inset 0 0 0 2px var(--pink), var(--shadow);
 }
 
-.heart-button[aria-pressed="true"] .icon {
-  fill: #D9534A;
-  stroke: #D9534A;
+.heart-button[aria-pressed="true"] .icon,
+.fav-remove .icon {
+  fill: var(--pink);
+  stroke: var(--text);
 }
 
 /* ---------- Confronta ---------- */
@@ -877,10 +880,21 @@ button {
   background: var(--lilac);
 }
 
+/* Messaggi d'errore: icona + testo su rosa tenue (niente rosso, è di "Non vanno d'accordo") */
 .form-error {
-  margin: 12px 4px 0;
-  color: #A2392E;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: #FFF4F5;
+  box-shadow: inset 0 0 0 2px var(--pink);
   font-weight: 700;
+}
+
+.form-error .icon {
+  margin-top: 1px;
 }
 
 .form-error:empty {
@@ -1093,11 +1107,6 @@ button {
   cursor: pointer;
 }
 
-.fav-remove .icon {
-  fill: #D9534A;
-  stroke: #D9534A;
-}
-
 .fav-remove:hover {
   background: rgba(91, 75, 67, 0.08);
 }
@@ -1105,6 +1114,197 @@ button {
 .fav-empty {
   margin: 0 4px;
   font-size: 15px;
+}
+
+/* ---------- I miei prodotti ---------- */
+
+.products-add {
+  margin-bottom: 16px;
+}
+
+.products-add .btn-wide {
+  max-width: none;
+}
+
+.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.product-item {
+  padding: 16px 18px;
+}
+
+.product-line {
+  margin: 0 0 12px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.product-type {
+  font-weight: 800;
+}
+
+.product-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 700;
+  text-decoration-color: var(--sage);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-small {
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 15px;
+  gap: 6px;
+}
+
+/* Modulo */
+.form-field {
+  border: 0;
+  margin: 0 0 24px;
+  padding: 0;
+  min-width: 0;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0 0 8px 4px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.combo-hint {
+  margin: -4px 4px 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.pill-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill-option span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--bg);
+  box-shadow: inset 0 0 0 2px var(--line);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pill-option input:checked + span {
+  background: var(--lilac);
+  box-shadow: inset 0 0 0 2px var(--focus);
+  font-weight: 800;
+}
+
+.pill-option input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.active-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.active-tags[hidden] {
+  display: none;
+}
+
+.active-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 14px;
+  border-radius: 999px;
+  background: var(--lilac);
+  font-weight: 800;
+}
+
+.active-tag .badge {
+  font-size: 12px;
+}
+
+.active-tag-remove {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.active-tag-remove:hover {
+  background: rgba(91, 75, 67, 0.1);
+}
+
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+/* Finestra di conferma (dentro l'app) */
+.confirm {
+  width: min(400px, calc(100vw - 32px));
+  padding: 24px 22px 20px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 20px 50px rgba(91, 75, 67, 0.25);
+}
+
+.confirm::backdrop {
+  background: rgba(91, 75, 67, 0.35);
+}
+
+.confirm-title {
+  font-size: 23px;
+  margin: 0 0 8px;
+}
+
+.confirm-text {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.confirm-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-delete {
+  background: var(--pink);
+}
+
+.btn-delete:hover {
+  background: #FFC7CE;
 }
 
 /* ---------- Mascotte ---------- */

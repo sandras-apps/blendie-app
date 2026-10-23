@@ -88,6 +88,34 @@ export function toggleFavoriteIngredient(id) {
   return !saved;
 }
 
+// I miei prodotti: { id, type, actives: [id ingredienti], when }.
+// Niente nome, niente brand, niente foto. Gli ultimi aggiunti stanno in cima.
+export function getProducts() {
+  const saved = read('products', []);
+  return Array.isArray(saved) ? saved.filter((p) => p && p.id) : [];
+}
+
+export function getProduct(id) {
+  return getProducts().find((p) => p.id === id) || null;
+}
+
+// Salva un prodotto nuovo (senza id) o aggiorna quello esistente; restituisce l'id.
+export function saveProduct(product) {
+  const products = getProducts();
+  const clean = { type: product.type, actives: [...product.actives], when: product.when };
+  if (product.id && products.some((p) => p.id === product.id)) {
+    write('products', products.map((p) => (p.id === product.id ? { ...clean, id: p.id } : p)));
+    return product.id;
+  }
+  const id = `p${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+  write('products', [{ ...clean, id }, ...products]);
+  return id;
+}
+
+export function deleteProduct(id) {
+  write('products', getProducts().filter((p) => p.id !== id));
+}
+
 // Un abbinamento è lo stesso in tutti e due i sensi: A+B = B+A.
 function samePair(pair, a, b) {
   return Array.isArray(pair) && ((pair[0] === a && pair[1] === b) || (pair[0] === b && pair[1] === a));

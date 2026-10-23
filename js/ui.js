@@ -85,6 +85,11 @@ export function bindHeart(button, toggle) {
   });
 }
 
+// Messaggio d'errore vicino a un campo (icona + testo); con text vuoto lo toglie.
+export function setError(element, text) {
+  element.innerHTML = text ? `${icon('alert')}<span>${esc(text)}</span>` : '';
+}
+
 // Colori di un livello (da data.json → levels) come variabili CSS.
 export function levelStyle(level) {
   return `--level:${esc(level.color)};--tint:${esc(level.tint)};--level-text:${esc(level.text)}`;
