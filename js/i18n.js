@@ -26,11 +26,23 @@ const strings = {
     'soon': 'Questa schermata arriva nei prossimi passi.',
     'welcome.text': 'Ciao! Scegli due ingredienti e ti dico se vanno d\'accordo.',
     'welcome.start': 'Iniziamo',
-    'welcome.alt': 'Il coccodrillo di Blendie che saluta e sbircia da sotto una fetta di cetriolo',
-    'empty.alt': 'Il coccodrillo di Blendie con un barattolo di crema in mano',
+    'welcome.alt': 'Coco, il coccodrillo di Blendie, che saluta e sbircia da sotto una fetta di cetriolo',
+    'empty.alt': 'Coco, il coccodrillo di Blendie, con un barattolo di crema in mano',
     'favorites.empty': 'Non hai ancora preferiti. Tocca il cuore su un risultato o sulla scheda di un ingrediente per salvarlo qui.',
     'products.empty': 'Non hai ancora salvato prodotti. Aggiungi il primo: scrivi il nome del prodotto e scegli gli ingredienti attivi che contiene.',
     'info.language': 'Lingua',
+    'loading': 'Caricamento…',
+    'data.error': 'Non riesco a caricare i dati. Controlla la connessione e riprova.',
+    'retry': 'Riprova',
+    'drug.badge': 'Farmaco',
+    'ingredients.search': 'Cerca un ingrediente',
+    'ingredients.placeholder': 'Nome, sinonimo o INCI',
+    'ingredients.filters': 'Filtra per categoria',
+    'ingredients.all': 'Tutti',
+    'ingredients.count.one': '1 ingrediente',
+    'ingredients.count': '{n} ingredienti',
+    'ingredients.none': 'Nessun ingrediente trovato. Prova con un altro nome, un sinonimo o il nome INCI.',
+    'ingredients.also': 'Anche: {text}',
   },
   en: {
     'app.name': 'Blendie',
@@ -55,11 +67,23 @@ const strings = {
     'soon': 'This screen is coming in the next steps.',
     'welcome.text': 'Hi! Pick two ingredients and I\'ll tell you if they get along.',
     'welcome.start': 'Let\'s start',
-    'welcome.alt': 'The Blendie crocodile waving and peeking out from under a cucumber slice',
-    'empty.alt': 'The Blendie crocodile holding a jar of cream',
+    'welcome.alt': 'Coco, Blendie\'s crocodile, waving and peeking out from under a cucumber slice',
+    'empty.alt': 'Coco, Blendie\'s crocodile, holding a jar of cream',
     'favorites.empty': 'No favourites yet. Tap the heart on a result or on an ingredient card to save it here.',
     'products.empty': 'You haven\'t saved any products yet. Add your first one: type the product name and choose the active ingredients it contains.',
     'info.language': 'Language',
+    'loading': 'Loading…',
+    'data.error': 'I can\'t load the data. Check your connection and try again.',
+    'retry': 'Try again',
+    'drug.badge': 'Medicine',
+    'ingredients.search': 'Search for an ingredient',
+    'ingredients.placeholder': 'Name, synonym or INCI',
+    'ingredients.filters': 'Filter by category',
+    'ingredients.all': 'All',
+    'ingredients.count.one': '1 ingredient',
+    'ingredients.count': '{n} ingredients',
+    'ingredients.none': 'No ingredients found. Try another name, a synonym or the INCI name.',
+    'ingredients.also': 'Also: {text}',
   },
 };
 
@@ -90,9 +114,10 @@ export function setLang(next) {
   window.dispatchEvent(new Event('langchange'));
 }
 
-// Testo dell'interfaccia.
-export function t(key) {
-  return strings[lang][key] ?? strings.it[key] ?? key;
+// Testo dell'interfaccia. I valori tra graffe si riempiono: t('x', { n: 3 })
+export function t(key, values) {
+  const text = strings[lang][key] ?? strings.it[key] ?? key;
+  return values ? text.replace(/\{(\w+)\}/g, (match, name) => values[name] ?? match) : text;
 }
 
 // Testo di data.json nella lingua scelta: pick({ it: '...', en: '...' })

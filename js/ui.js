@@ -1,5 +1,7 @@
 // Piccoli aiuti condivisi tra le schermate.
 import { t } from './i18n.js';
+import { loadData } from './data.js';
+import { icon } from './icons.js';
 
 // Rende sicuro un testo prima di inserirlo nell'HTML.
 export function esc(value) {
@@ -28,6 +30,38 @@ export function emptyState(textKey) {
     <img class="empty-mascot" src="assets/mascot/empty.png" alt="${esc(t('empty.alt'))}" width="160" height="160">
     <p>${esc(t(textKey))}</p>
   </div>`;
+}
+
+// Disegna una schermata che ha bisogno di data.json: aspetta i dati,
+// e se non arrivano mostra un messaggio con il bottone "Riprova".
+export function withData(main, draw) {
+  const request = {};
+  main.pendingRequest = request;
+  main.innerHTML = `<p class="muted status-message">${esc(t('loading'))}</p>`;
+  loadData().then(
+    (data) => {
+      if (main.pendingRequest !== request) return; // nel frattempo si è cambiata pagina
+      const hadFocus = document.activeElement === main;
+      draw(data);
+      if (hadFocus) {
+        const heading = main.querySelector('h1');
+        if (heading) heading.focus({ preventScroll: true });
+      }
+    },
+    () => {
+      if (main.pendingRequest !== request) return;
+      main.innerHTML = `<div class="card status-message" role="alert">
+        <p>${esc(t('data.error'))}</p>
+        <button class="btn btn-primary" type="button">${esc(t('retry'))}</button>
+      </div>`;
+      main.querySelector('button').addEventListener('click', () => withData(main, draw));
+    },
+  );
+}
+
+// Etichetta "Farmaco" per gli ingredienti con drug: true.
+export function drugBadge() {
+  return `<span class="badge badge-drug">${icon('pill', 'icon icon-small')}${esc(t('drug.badge'))}</span>`;
 }
 
 // Va a un'altra schermata. Con replace la pagina attuale non resta nella
