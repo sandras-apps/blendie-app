@@ -34,8 +34,8 @@
       "tint": "#EFE7FA",
       "text": "#5E4396",
       "note": {
-        "it": "Non risultano problemi negli studi e nei pareri degli esperti.",
-        "en": "No problems are reported in studies or expert opinion."
+        "it": "Non abbiamo trovato fonti affidabili su questa coppia, né a favore né contro. Non vuol dire che sia sicura: se hai dubbi, chiedi al farmacista o al dermatologo.",
+        "en": "We haven't found reliable sources on this pair, either for or against. That doesn't mean it's safe: if in doubt, ask a pharmacist or dermatologist."
       }
     },
     "drug": {
@@ -44,7 +44,11 @@
       "note": {
         "it": "Blendie non dà abbinamenti con i farmaci. Come usarli, e con cosa, lo decide il medico o il farmacista.",
         "en": "Blendie doesn't give pairings for medicines. How to use them, and with what, is for your doctor or pharmacist to decide."
-      }
+      },
+      "icon": "pill",
+      "color": "#C9B8A8",
+      "tint": "#F4EEE8",
+      "text": "#5B4B43"
     }
   },
   "basis": {
@@ -1449,7 +1453,7 @@
         },
         {
           "title": "EU scientific committee — effects of UVA and UVB",
-          "url": "https://ec.europa.eu/health/scientific_committees/opinions_layman/es/camas-solares/l-2/3-health-effects-uva-uvb-uvc.htm"
+          "url": "https://ec.europa.eu/health/scientific_committees/opinions_layman/en/sunbeds/l-2/3-health-effects-uva-uvb-uvc.htm"
         },
         {
           "title": "American Academy of Dermatology — how to apply sunscreen",
@@ -2139,8 +2143,8 @@
       ],
       "sources": [
         {
-          "title": "EU Regulation 1223/2009 (summary)",
-          "url": "https://en.wikipedia.org/wiki/EC_Regulation_1223/2009_on_cosmetics"
+          "title": "EU Regulation 1223/2009 on cosmetic products",
+          "url": "https://eur-lex.europa.eu/eli/reg/2009/1223/oj"
         },
         {
           "title": "CosmeticOBS — new allergens",
@@ -2267,7 +2271,7 @@
   },
   "about": {
     "what": {
-      "it": "Blendie ti dice se due ingredienti skincare si possono usare insieme. Ogni risultato mostra un livello, un consiglio pratico, su cosa si basa e le fonti, così puoi controllare tutto da sola.",
+      "it": "Blendie ti dice se due ingredienti skincare si possono usare insieme. Ogni risultato mostra un livello, un consiglio pratico, su cosa si basa e le fonti, così puoi controllare tutto in autonomia.",
       "en": "Blendie tells you whether two skincare ingredients can be used together. Every result shows a level, practical advice, what it's based on and the sources, so you can check everything yourself."
     },
     "sourcesRules": {
