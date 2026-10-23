@@ -1,0 +1,6 @@
+# Loghi originali ad alta risoluzione: servono solo per rigenerare
+# logo e icone, l'app non li usa.
+assets/logo/originals/
+
+# Impostazioni locali di Claude Code
+.claude/settings.local.json

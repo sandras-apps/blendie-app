@@ -1,0 +1,332 @@
+/* Blendie — stile di base (solo tema chiaro in v1) */
+
+@font-face {
+  font-family: "Baloo 2";
+  src: url("../assets/fonts/baloo-2-latin-wght-normal.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../assets/fonts/nunito-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Colori del brand */
+  --bg: #FFF9F4;
+  --card: #FFFFFF;
+  --pink: #FFD6DB;
+  --lilac: #E9D8FB;
+  --sage: #A7D3A8;
+  --text: #5B4B43;
+  --muted: #7A6A62;
+  --line: #F1E6DE;
+  --focus: #8B6FC9;
+
+  --font-title: "Baloo 2", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --radius-lg: 24px;
+  --radius: 18px;
+  --radius-sm: 14px;
+  --shadow: 0 6px 20px rgba(91, 75, 67, 0.08), 0 1px 3px rgba(91, 75, 67, 0.06);
+
+  --page-width: 560px;
+  --gutter: 16px;
+  --tabbar-height: 68px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Focus sempre visibile per chi usa la tastiera */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Barra in alto ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  padding: calc(var(--safe-top) + 10px) var(--gutter) 6px;
+}
+
+.topbar-inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+}
+
+.brand-name {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 48px;
+  padding: 0 16px 0 8px;
+  margin-left: -8px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background: var(--lilac);
+}
+
+/* ---------- Contenuto ---------- */
+
+.page {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 8px var(--gutter) calc(var(--tabbar-height) + var(--safe-bottom) + 32px);
+}
+
+.page-title {
+  font-size: 32px;
+  margin: 8px 0 16px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.hero-logo {
+  width: 112px;
+  height: 112px;
+  margin: 8px auto 12px;
+}
+
+/* Elenco di link (schermata Altro) */
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 12px 16px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.menu-link > span:nth-child(2) {
+  flex: 1;
+}
+
+.menu-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--lilac);
+}
+
+.menu-icon.pink {
+  background: var(--pink);
+}
+
+.menu-icon.sage {
+  background: var(--sage);
+}
+
+.menu-link .chevron {
+  color: var(--muted);
+}
+
+/* ---------- Barra in basso ---------- */
+
+.tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: var(--card);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: 0 -4px 20px rgba(91, 75, 67, 0.08);
+  padding: 6px 4px calc(var(--safe-bottom) + 6px);
+}
+
+.tabbar ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: var(--page-width);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-height: 56px;
+  padding: 4px 2px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.tab-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 32px;
+  border-radius: 999px;
+  transition: background-color 0.15s ease;
+}
+
+.tab[aria-current="page"] {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.tab[aria-current="page"] .tab-icon {
+  background: var(--lilac);
+}
+
+.noscript {
+  max-width: var(--page-width);
+  margin: 40px auto;
+  padding: 0 var(--gutter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
