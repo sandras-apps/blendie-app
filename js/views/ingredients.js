@@ -13,40 +13,56 @@ export function renderIngredients(main) {
     const categoryNames = new Map(data.categories.map((c) => [c.id, pick(c)]));
 
     main.innerHTML = `${pageTitle(t('title.ingredients'))}
-      <div class="search-field">
-        <label class="visually-hidden" for="ingredient-search">${esc(t('ingredients.search'))}</label>
-        ${icon('search', 'icon search-icon')}
-        <input class="search-input" id="ingredient-search" type="search" value="${esc(state.query)}"
-          placeholder="${esc(t('ingredients.placeholder'))}" autocomplete="off" autocapitalize="none"
-          spellcheck="false" enterkeyhint="search">
-      </div>
-      <div class="filter" id="category-filter">
-        <label class="filter-label" for="category-select">${esc(t('filter.category'))}</label>
-        <div class="filter-control">
-          <select class="filter-select" id="category-select">
+      <div class="search-row">
+        <div class="search-field">
+          <label class="visually-hidden" for="ingredient-search">${esc(t('ingredients.search'))}</label>
+          ${icon('search', 'icon search-icon')}
+          <input class="search-input" id="ingredient-search" type="search" value="${esc(state.query)}"
+            placeholder="${esc(t('ingredients.placeholder'))}" autocomplete="off" autocapitalize="none"
+            spellcheck="false" enterkeyhint="search">
+        </div>
+        <div class="filter-button" id="category-filter">
+          <select class="filter-select" id="category-select" aria-label="${esc(t('filter.label'))}" title="${esc(t('filter.label'))}">
             <option value="all">${esc(t('filter.all'))}</option>
             ${data.categories.map((c) => `<option value="${esc(c.id)}">${esc(pick(c))}</option>`).join('')}
           </select>
-          ${icon('chevron', 'icon filter-arrow')}
+          ${icon('filter', 'icon filter-icon')}
         </div>
-        <button class="filter-clear" type="button" id="category-clear">${icon('x', 'icon icon-small')}<span>${esc(t('filter.clear'))}</span></button>
       </div>
+      <div class="active-filter" id="active-filter" hidden></div>
       <p class="list-count muted" id="ingredient-count" aria-live="polite"></p>
       <ul class="ingredient-list" id="ingredient-list"></ul>`;
 
     const input = main.querySelector('#ingredient-search');
     const select = main.querySelector('#category-select');
-    const clear = main.querySelector('#category-clear');
     const filter = main.querySelector('#category-filter');
+    const activeFilter = main.querySelector('#active-filter');
     const list = main.querySelector('#ingredient-list');
     const count = main.querySelector('#ingredient-count');
     const collator = new Intl.Collator(getLang(), { sensitivity: 'base' });
 
+    // Filtro attivo: il bottone diventa lilla e sotto la ricerca compare
+    // un'etichetta con il nome della categoria e una × per toglierla.
     function showFilter() {
       const active = state.category !== 'all';
       select.value = state.category;
       filter.classList.toggle('is-active', active);
-      clear.hidden = !active;
+      activeFilter.hidden = !active;
+      if (!active) {
+        activeFilter.innerHTML = '';
+        return;
+      }
+      const label = categoryNames.get(state.category);
+      activeFilter.innerHTML = `<span class="filter-tag">
+        <span>${esc(label)}</span>
+        <button class="filter-tag-clear" type="button" aria-label="${esc(t('filter.clear', { name: label }))}">${icon('x', 'icon icon-small')}</button>
+      </span>`;
+      activeFilter.querySelector('button').addEventListener('click', () => {
+        state.category = 'all';
+        showFilter();
+        update();
+        select.focus();
+      });
     }
 
     function update() {
@@ -82,13 +98,6 @@ export function renderIngredients(main) {
       state.category = select.value;
       showFilter();
       update();
-    });
-
-    clear.addEventListener('click', () => {
-      state.category = 'all';
-      showFilter();
-      update();
-      select.focus();
     });
 
     if (!data.categories.some((c) => c.id === state.category)) state.category = 'all';

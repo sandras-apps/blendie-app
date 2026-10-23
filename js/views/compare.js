@@ -3,7 +3,7 @@
 // così il risultato si può riaprire dai Preferiti o da un link.
 import { t, pick, getLang } from '../i18n.js';
 import { icon } from '../icons.js';
-import { esc, pageTitle, withData, drugBadge, sourcesList, heartButton, bindHeart } from '../ui.js';
+import { esc, pageTitle, withData, sourcesList, heartButton, bindHeart, levelStyle } from '../ui.js';
 import { searchIngredients, getIngredient, comparePair } from '../data.js';
 import { isFavoritePair, toggleFavoritePair } from '../storage.js';
 
@@ -25,9 +25,11 @@ function comboField(key, label) {
   </div>`;
 }
 
+// I farmaci non si possono scegliere in Confronta: hanno solo la scheda informativa.
+const canCompare = (ing) => Boolean(ing && !ing.drug);
+
 // Il riquadro del risultato. Qui parlano solo la scienza e le fonti: niente mascotte.
 function resultHtml(res, data) {
-  const isDrug = res.state === 'drug';
   const level = data.levels[res.state];
   const names = `<p class="result-pair">
     <a href="#/ingredient/${encodeURIComponent(res.a.id)}">${esc(pick(res.a.name))}</a>
@@ -36,12 +38,7 @@ function resultHtml(res, data) {
   </p>`;
 
   let body = '';
-  if (isDrug) {
-    body = `<p class="result-note">${esc(pick(level.note))}</p>
-      <div class="result-links">${res.drugs.map((ing) => `
-        <a class="btn btn-secondary" href="#/ingredient/${encodeURIComponent(ing.id)}">${icon('pill')}${esc(t('result.drugCard', { name: pick(ing.name) }))}</a>`).join('')}
-      </div>`;
-  } else if (res.state === 'unknown') {
+  if (res.state === 'unknown') {
     body = `<p class="result-note">${esc(pick(level.note))}</p>`;
   } else {
     const basis = data.basis[res.pair.basis];
@@ -51,15 +48,14 @@ function resultHtml(res, data) {
       ${sourcesList(res.pair.sources)}`;
   }
 
-  return `<section class="result result-${esc(res.state)}" aria-labelledby="result-title"
-      style="--level:${esc(level.color)};--tint:${esc(level.tint)};--level-text:${esc(level.text)}">
+  return `<section class="result result-${esc(res.state)}" aria-labelledby="result-title" style="${levelStyle(level)}">
     <div class="result-head">
       <span class="level-circle">${icon(level.icon)}</span>
       <div class="result-heading">
         <p class="result-kicker">${esc(t('result.label'))}</p>
         <h2 class="result-title" id="result-title" tabindex="-1">${esc(pick(level))}</h2>
       </div>
-      ${isDrug ? '' : heartButton(isFavoritePair(res.a.id, res.b.id), t('result.favorite'))}
+      ${heartButton(isFavoritePair(res.a.id, res.b.id), t('result.favorite'))}
     </div>
     ${names}
     ${body}
@@ -71,7 +67,7 @@ export function renderCompare(main, { query }) {
   withData(main, (data) => {
     const collator = new Intl.Collator(getLang(), { sensitivity: 'base' });
     const labels = { a: t('compare.first'), b: t('compare.second') };
-    const valid = (id) => (id && getIngredient(id) ? id : null);
+    const valid = (id) => (canCompare(getIngredient(id)) ? id : null);
     const selected = { a: valid(query.get('a')), b: valid(query.get('b')) };
     if (selected.a && selected.a === selected.b) selected.b = null;
 
@@ -108,7 +104,8 @@ export function renderCompare(main, { query }) {
 
     function showResult(moveFocus) {
       const res = comparePair(selected.a, selected.b);
-      if (!res || res.state === 'same') return;
+      // 'same' e 'drug' qui non possono arrivare; il controllo resta per sicurezza.
+      if (!res || res.state === 'same' || res.state === 'drug') return;
       resultArea.innerHTML = resultHtml(res, data);
       const heart = resultArea.querySelector('.heart-button');
       if (heart) bindHeart(heart, () => toggleFavoritePair(res.a.id, res.b.id));
@@ -158,15 +155,16 @@ export function renderCompare(main, { query }) {
           <li class="combo-option${i === active ? ' is-active' : ''}" role="option" id="combo-${key}-option-${i}"
             data-index="${i}" aria-selected="${i === active}"${o.taken ? ' aria-disabled="true"' : ''}>
             <span class="combo-option-name">${esc(o.name)}</span>
-            ${o.ing.drug ? drugBadge() : ''}
             ${o.taken ? `<span class="combo-option-note">${esc(t('compare.taken'))}</span>` : ''}
             ${o.also ? `<span class="combo-option-also">${esc(t('ingredients.also', { text: o.also }))}</span>` : ''}
           </li>`).join('');
       }
 
+      // I suggerimenti seguono sempre il testo del campo: la lista completa
+      // si vede solo quando il campo è vuoto.
       function open() {
-        const query = selected[key] ? '' : input.value;
-        options = searchIngredients(query)
+        options = searchIngredients(input.value)
+          .filter((o) => canCompare(o.ing))
           .sort((x, y) => x.score - y.score || collator.compare(x.name, y.name))
           .map((o) => ({ ...o, taken: o.ing.id === selected[other] }));
         active = -1;
@@ -226,11 +224,25 @@ export function renderCompare(main, { query }) {
         open();
       });
 
+      // Toccando un campo già pieno il testo è tutto selezionato:
+      // se si inizia a scrivere, lo si sostituisce subito.
+      let keepSelection = false;
       input.addEventListener('focus', () => {
-        if (!selected[key]) open();
+        open();
+        if (input.value) {
+          input.select();
+          keepSelection = true;
+          setTimeout(() => { keepSelection = false; }, 300);
+        }
+      });
+
+      // Il clic che ha dato il focus non deve togliere la selezione del testo.
+      input.addEventListener('mouseup', (event) => {
+        if (keepSelection) event.preventDefault();
       });
 
       input.addEventListener('click', () => {
+        if (keepSelection) input.select();
         if (list.hidden) open();
       });
 

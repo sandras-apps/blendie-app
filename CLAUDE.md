@@ -26,7 +26,7 @@ Proprietaria: Sandra. Lei non è una sviluppatrice: spiegale ogni passo in modo 
 
 Dati due ingredienti X e Y:
 1. Se X e Y sono lo stesso ingrediente, non permettere il confronto.
-2. Se almeno uno è un farmaco (`drug: true`) → stato `drug`: nessun abbinamento, mostra la nota di `levels.drug` e il link alla scheda.
+2. Se almeno uno è un farmaco (`drug: true`) → stato `drug`: nessun abbinamento. I farmaci non si possono scegliere in Confronta, quindi questo caso non arriva mai nella schermata; il controllo resta nella logica per sicurezza.
 3. Se esiste una voce in `pairs` con X in `a` e Y in `b`, o viceversa → mostra quella.
 4. Altrimenti → stato `unknown` ("Nessuna interazione nota", colore lilla), con la sua nota.
 
@@ -36,19 +36,24 @@ Trova un ingrediente cercando nel nome IT e EN, nei sinonimi e nei nomi INCI. Se
 
 ## 3. Schermate della v1
 
-1. **Home (Confronta)**: due campi "Ingrediente 1" e "Ingrediente 2" con ricerca, e il bottone "Controlla".
-2. **Risultato**: il livello (cerchio colorato + icona + testo, mai solo il colore), il consiglio, la riga "Basato su", le fonti cliccabili e il disclaimer in piccolo. Bottone per salvare l'abbinamento nei Preferiti. Con "Nessuna interazione nota" la nota si legge bene, non in piccolo (è importante). Se c'è un farmaco: riquadro beige con la pillola, la nota dei farmaci e il link alla scheda. Un bottone per invertire i due ingredienti e uno per ricominciare. Lo stesso ingrediente non si può scegliere due volte.
-3. **Ingredienti**: tutti gli ingredienti in **ordine alfabetico**, con il nome più diffuso nella lingua scelta. Lente di ricerca in alto e, sotto, il filtro per categoria: un menu a tendina con l'etichetta "Categoria" / "Category", che contiene "Tutte le categorie" / "All categories" e poi tutte le categorie (es. "Barriera e idratazione", "Esfolianti (acidi)"). Quando c'è un filtro attivo la tendina diventa lilla e accanto compare "Togli filtro" / "Clear filter". I farmaci hanno un'etichetta "Farmaco".
+1. **Home (Confronta)**: due campi "Ingrediente 1" e "Ingrediente 2" con ricerca, e il bottone "Controlla". **I farmaci non compaiono nella lista e non si possono scegliere.** I suggerimenti filtrano sempre con il testo del campo: se tocco un campo che ha già un ingrediente scelto (es. "Retinolo"), il testo è già tutto selezionato (se scrivo, lo sostituisco) e i suggerimenti partono da quel testo. La lista completa si vede solo quando il campo è vuoto (dopo la ×).
+2. **Risultato**: il livello (cerchio colorato + icona + testo, mai solo il colore), il consiglio, la riga "Basato su", le fonti cliccabili e il disclaimer in piccolo. Bottone per salvare l'abbinamento nei Preferiti. Con "Nessuna interazione nota" la nota si legge bene, non in piccolo (è importante). Un bottone per invertire i due ingredienti e uno per ricominciare. Lo stesso ingrediente non si può scegliere due volte.
+3. **Ingredienti**: tutti gli ingredienti in **ordine alfabetico**, con il nome più diffuso nella lingua scelta. In alto la barra di ricerca e, sulla stessa riga, un bottone piccolo e tondo con solo l'icona del filtro, senza testo, con il nome "Filtra per categoria" / "Filter by category" per i lettori di schermo. Toccandolo si apre la lista: "Tutte le categorie" / "All categories" e poi tutte le categorie. Quando una categoria è attiva il bottone diventa lilla e sotto la ricerca compare una piccola etichetta con il nome della categoria e una × per toglierla. I farmaci restano nell'elenco con l'etichetta "Farmaco" e la loro scheda informativa.
 4. **Scheda ingrediente**: categorie, sinonimi e INCI, Cosa fa, Percentuali, Come usarlo, Attenzione, poi **"Gli studi" in una tendina chiusa** (`<details>`), fonti, "Fonte più recente" / "Latest source" (campo `latest`). I bottoni stanno in alto: il cuore per salvare nei Preferiti è piccolo, accanto al nome; il bottone "Controlla un abbinamento" (apre la Home con questo ingrediente già scelto) sta subito sotto il nome e le categorie. In fondo alla scheda non si ripetono. Per i farmaci: niente bottone di abbinamento, solo la nota di `levels.drug`.
 5. **I miei prodotti** (salvati sul dispositivo): serve solo per ricordare quali principi attivi si stanno già usando. Niente nome, niente brand, niente foto. Ogni prodotto ha:
    - **Tipo di prodotto**, da una lista: detergente, tonico, siero, crema, gel, olio, maschera, contorno occhi, protezione solare, altro (IT + EN: cleanser, toner, serum, cream, gel, oil, mask, eye cream, sunscreen, other).
-   - **Principi attivi principali**, scelti solo dalla lista degli ingredienti (almeno uno).
+   - **Principi attivi principali**, scelti solo dalla lista degli ingredienti (almeno uno). Qui i farmaci ci sono: si possono aggiungere a un prodotto.
    - **Quando lo uso**: mattina, sera, mattina e sera.
 
    Nell'elenco ogni prodotto si mostra così: "Siero · Sera · Retinolo, Niacinamide". Si può modificare e cancellare (con conferma prima di cancellare). Toccando un ingrediente del prodotto si apre Confronta con quell'ingrediente già scelto, e l'utente sceglie il secondo; se l'ingrediente è un farmaco, si apre invece la sua scheda.
 
    Pagina vuota: Coco (`empty.png`), il testo "Non hai ancora salvato prodotti. Aggiungi il primo: scegli il tipo di prodotto, i principi attivi che contiene e quando lo usi." / "You haven't saved any products yet. Add your first one: choose the product type, the active ingredients it contains and when you use it." e sotto un bottone ben visibile "Aggiungi prodotto" / "Add product".
 6. **Preferiti** (salvati sul dispositivo): abbinamenti e singoli ingredienti salvati, anche quelli che l'utente non usa ancora.
+   - Due sezioni separate: "Abbinamenti" e "Ingredienti".
+   - Ogni abbinamento mostra colore, icona e titolo del suo risultato; toccandolo si riapre il risultato. Il risultato si calcola ogni volta da `data.json` (si salvano solo i due id): se un abbinamento cambia in `data.json`, il preferito mostra quello nuovo.
+   - Ogni ingrediente salvato apre la sua scheda.
+   - Si può togliere un preferito anche da questa pagina, senza aprirlo.
+   - Se una sezione è vuota ma l'altra no, nella sezione vuota c'è solo un piccolo testo; Coco compare solo quando sono vuote tutte e due.
 7. **Falsi miti**: una scheda per mito (cosa si dice, cosa è vero, fonti).
 8. **Guide**: "Come leggere l'INCI" e "I formati" (tabella).
 9. **Info**: cos'è Blendie, come funzionano i livelli, regole sulle fonti, disclaimer, privacy, lingua. Tutti i testi sono in `data.json` (`about`, `levels`, `basis`, `disclaimer`, `privacy`).

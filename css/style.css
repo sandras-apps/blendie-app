@@ -316,9 +316,16 @@ button {
 
 /* ---------- Ricerca e filtri ---------- */
 
+.search-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
 .search-field {
   position: relative;
-  margin-bottom: 12px;
+  flex: 1;
+  min-width: 0;
 }
 
 .search-icon {
@@ -353,49 +360,36 @@ button {
   outline: none;
 }
 
-/* Filtro per categoria: menu a tendina, lilla quando è attivo */
-/* "Categoria" e "Togli filtro" sulla stessa riga, la tendina sotto a tutta larghezza */
-.filter {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  column-gap: 10px;
-  margin-bottom: 4px;
-}
-
-.filter-label {
-  grid-column: 1;
-  grid-row: 1;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  padding-left: 4px;
-  font-weight: 800;
-  font-size: 15px;
-}
-
-.filter-control {
-  grid-column: 1 / -1;
-  grid-row: 2;
+/* Filtro per categoria: bottone tondo con l'icona, accanto alla ricerca.
+   Dentro c'è un menu a tendina vero (comodo su telefono e per i lettori di schermo). */
+.filter-button {
   position: relative;
-  min-width: 0;
+  flex: none;
+  width: 52px;
+  height: 52px;
 }
 
 .filter-select {
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
-  min-height: 48px;
-  padding: 10px 44px 10px 16px;
-  border: 2px solid var(--line);
-  border-radius: 999px;
+  height: 100%;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
   background: var(--card);
-  color: var(--text);
+  box-shadow: var(--shadow);
+  color: transparent;
   font: inherit;
   font-size: 16px;
-  font-weight: 700;
-  text-overflow: ellipsis;
+  text-indent: 100px;
+  overflow: hidden;
   cursor: pointer;
+}
+
+.filter-select option {
+  color: var(--text);
+  background: var(--card);
 }
 
 .filter-select:focus-visible {
@@ -403,43 +397,52 @@ button {
   outline-offset: 2px;
 }
 
-.filter-arrow {
+.filter-icon {
   position: absolute;
-  right: 16px;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%) rotate(90deg);
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
-.filter.is-active .filter-select {
+.filter-button.is-active .filter-select {
   background: var(--lilac);
   border-color: var(--focus);
 }
 
-.filter-clear {
+/* Etichetta della categoria attiva, con la × per toglierla */
+.active-filter {
+  margin: -2px 0 8px;
+}
+
+.active-filter[hidden] {
+  display: none;
+}
+
+.filter-tag {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  min-height: 44px;
-  padding: 0 14px;
-  border: 0;
+  gap: 2px;
+  padding-left: 14px;
   border-radius: 999px;
-  background: transparent;
-  grid-column: 2;
-  grid-row: 1;
-  font-weight: 800;
+  background: var(--lilac);
   font-size: 15px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-weight: 800;
+}
+
+.filter-tag-clear {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
   cursor: pointer;
 }
 
-.filter-clear:hover {
-  background: var(--lilac);
-}
-
-.filter-clear[hidden] {
-  display: none;
+.filter-tag-clear:hover {
+  background: rgba(91, 75, 67, 0.1);
 }
 
 .list-count {
@@ -991,18 +994,117 @@ button {
   margin: 16px 0 4px;
 }
 
-.result-links {
-  display: grid;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-
 .disclaimer {
   margin: 18px 0 0;
   padding-top: 12px;
   border-top: 1px solid rgba(91, 75, 67, 0.15);
   font-size: 13px;
   line-height: 1.45;
+}
+
+/* ---------- Preferiti ---------- */
+
+.fav-section + .fav-section {
+  margin-top: 28px;
+}
+
+.fav-section-title {
+  font-size: 23px;
+  margin: 0 0 10px 4px;
+}
+
+.fav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.fav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 8px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Gli abbinamenti hanno lo sfondo tenue e il bordo del loro livello */
+.fav-item[style] {
+  background: var(--tint);
+  box-shadow: inset 0 0 0 2px var(--level), var(--shadow);
+}
+
+.fav-link {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 10px 6px 10px 16px;
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+
+.fav-level-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--level);
+  color: var(--level-text);
+}
+
+.fav-level-icon .icon {
+  stroke-width: 2.6;
+}
+
+.fav-text {
+  min-width: 0;
+}
+
+.fav-name {
+  font-weight: 800;
+  font-size: 17px;
+  margin-right: 6px;
+}
+
+.fav-level {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--level-text);
+}
+
+.fav-remove {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.fav-remove .icon {
+  fill: #D9534A;
+  stroke: #D9534A;
+}
+
+.fav-remove:hover {
+  background: rgba(91, 75, 67, 0.08);
+}
+
+.fav-empty {
+  margin: 0 4px;
+  font-size: 15px;
 }
 
 /* ---------- Mascotte ---------- */

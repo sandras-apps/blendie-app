@@ -85,6 +85,11 @@ export function bindHeart(button, toggle) {
   });
 }
 
+// Colori di un livello (da data.json → levels) come variabili CSS.
+export function levelStyle(level) {
+  return `--level:${esc(level.color)};--tint:${esc(level.tint)};--level-text:${esc(level.text)}`;
+}
+
 // Etichetta "Farmaco" per gli ingredienti con drug: true.
 export function drugBadge() {
   return `<span class="badge badge-drug">${icon('pill', 'icon icon-small')}${esc(t('drug.badge'))}</span>`;

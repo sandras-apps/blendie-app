@@ -56,6 +56,23 @@ function loadFavorites() {
   };
 }
 
+// Copia dei preferiti salvati: { ingredients: [id], pairs: [[idA, idB]] }
+export function getFavorites() {
+  return loadFavorites();
+}
+
+export function removeFavoriteIngredient(id) {
+  const favorites = loadFavorites();
+  favorites.ingredients = favorites.ingredients.filter((other) => other !== id);
+  write('favorites', favorites);
+}
+
+export function removeFavoritePair(a, b) {
+  const favorites = loadFavorites();
+  favorites.pairs = favorites.pairs.filter((pair) => !samePair(pair, a, b));
+  write('favorites', favorites);
+}
+
 export function isFavoriteIngredient(id) {
   return loadFavorites().ingredients.includes(id);
 }
