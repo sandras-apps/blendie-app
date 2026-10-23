@@ -70,3 +70,23 @@ export function toggleFavoriteIngredient(id) {
   write('favorites', favorites);
   return !saved;
 }
+
+// Un abbinamento è lo stesso in tutti e due i sensi: A+B = B+A.
+function samePair(pair, a, b) {
+  return Array.isArray(pair) && ((pair[0] === a && pair[1] === b) || (pair[0] === b && pair[1] === a));
+}
+
+export function isFavoritePair(a, b) {
+  return loadFavorites().pairs.some((pair) => samePair(pair, a, b));
+}
+
+// Aggiunge o toglie l'abbinamento dai preferiti; restituisce true se ora è salvato.
+export function toggleFavoritePair(a, b) {
+  const favorites = loadFavorites();
+  const saved = favorites.pairs.some((pair) => samePair(pair, a, b));
+  favorites.pairs = saved
+    ? favorites.pairs.filter((pair) => !samePair(pair, a, b))
+    : [[a, b], ...favorites.pairs];
+  write('favorites', favorites);
+  return !saved;
+}

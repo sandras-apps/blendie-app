@@ -70,6 +70,21 @@ export function sourcesList(sources) {
   }).join('')}</ul>`;
 }
 
+// Cuore per salvare nei preferiti: un piccolo bottone a icona che si accende.
+// Il nome letto dal lettore di schermo resta uguale, cambia solo lo stato "premuto".
+export function heartButton(saved, label) {
+  return `<button class="heart-button" type="button" aria-pressed="${saved}" aria-label="${esc(label)}" title="${esc(label)}">
+    ${icon('heart')}
+  </button>`;
+}
+
+// toggle() salva o toglie e restituisce true se ora è salvato.
+export function bindHeart(button, toggle) {
+  button.addEventListener('click', () => {
+    button.setAttribute('aria-pressed', String(toggle()));
+  });
+}
+
 // Etichetta "Farmaco" per gli ingredienti con drug: true.
 export function drugBadge() {
   return `<span class="badge badge-drug">${icon('pill', 'icon icon-small')}${esc(t('drug.badge'))}</span>`;

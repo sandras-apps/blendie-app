@@ -1,9 +1,8 @@
-// Elenco degli ingredienti (con ricerca e filtri) e scheda del singolo ingrediente
-// (la scheda si costruisce nel passo "Scheda").
+// Elenco degli ingredienti (con ricerca e filtro per categoria) e scheda del singolo ingrediente.
 import { t, pick, getLang } from '../i18n.js';
 import { icon } from '../icons.js';
-import { esc, pageTitle, withData, drugBadge, sourcesList } from '../ui.js';
-import { matchIngredient, normalize, getIngredient } from '../data.js';
+import { esc, pageTitle, withData, drugBadge, sourcesList, heartButton, bindHeart } from '../ui.js';
+import { searchIngredients, normalize, getIngredient } from '../data.js';
 import { isFavoriteIngredient, toggleFavoriteIngredient } from '../storage.js';
 
 // Ricerca e filtro restano come li hai lasciati quando torni all'elenco.
@@ -12,7 +11,6 @@ const state = { query: '', category: 'all' };
 export function renderIngredients(main) {
   withData(main, (data) => {
     const categoryNames = new Map(data.categories.map((c) => [c.id, pick(c)]));
-    const chips = [{ id: 'all', label: t('ingredients.all') }, ...data.categories.map((c) => ({ id: c.id, label: pick(c) }))];
 
     main.innerHTML = `${pageTitle(t('title.ingredients'))}
       <div class="search-field">
@@ -22,30 +20,38 @@ export function renderIngredients(main) {
           placeholder="${esc(t('ingredients.placeholder'))}" autocomplete="off" autocapitalize="none"
           spellcheck="false" enterkeyhint="search">
       </div>
-      <div class="chips" role="group" aria-label="${esc(t('ingredients.filters'))}">
-        ${chips.map((chip) => `<button class="chip" type="button" data-category="${chip.id}"
-          aria-pressed="${chip.id === state.category}">${esc(chip.label)}</button>`).join('')}
+      <div class="filter" id="category-filter">
+        <label class="filter-label" for="category-select">${esc(t('filter.category'))}</label>
+        <div class="filter-control">
+          <select class="filter-select" id="category-select">
+            <option value="all">${esc(t('filter.all'))}</option>
+            ${data.categories.map((c) => `<option value="${esc(c.id)}">${esc(pick(c))}</option>`).join('')}
+          </select>
+          ${icon('chevron', 'icon filter-arrow')}
+        </div>
+        <button class="filter-clear" type="button" id="category-clear">${icon('x', 'icon icon-small')}<span>${esc(t('filter.clear'))}</span></button>
       </div>
       <p class="list-count muted" id="ingredient-count" aria-live="polite"></p>
       <ul class="ingredient-list" id="ingredient-list"></ul>`;
 
     const input = main.querySelector('#ingredient-search');
+    const select = main.querySelector('#category-select');
+    const clear = main.querySelector('#category-clear');
+    const filter = main.querySelector('#category-filter');
     const list = main.querySelector('#ingredient-list');
     const count = main.querySelector('#ingredient-count');
     const collator = new Intl.Collator(getLang(), { sensitivity: 'base' });
 
+    function showFilter() {
+      const active = state.category !== 'all';
+      select.value = state.category;
+      filter.classList.toggle('is-active', active);
+      clear.hidden = !active;
+    }
+
     function update() {
-      const q = normalize(state.query);
-      const rows = [];
-      for (const ing of data.ingredients) {
-        if (state.category !== 'all' && !ing.categories.includes(state.category)) continue;
-        const match = matchIngredient(ing, state.query);
-        if (!match) continue;
-        const name = pick(ing.name);
-        // Se l'ingrediente è stato trovato per un sinonimo, lo diciamo.
-        const also = q && !normalize(name).includes(q) ? match.text : null;
-        rows.push({ ing, name, also });
-      }
+      const rows = searchIngredients(state.query)
+        .filter(({ ing }) => state.category === 'all' || ing.categories.includes(state.category));
       rows.sort((a, b) => collator.compare(a.name, b.name));
 
       count.textContent = rows.length === 1 ? t('ingredients.count.one') : t('ingredients.count', { n: rows.length });
@@ -72,16 +78,21 @@ export function renderIngredients(main) {
       update();
     });
 
-    main.querySelectorAll('.chip').forEach((chip) => {
-      chip.addEventListener('click', () => {
-        state.category = chip.dataset.category;
-        main.querySelectorAll('.chip').forEach((other) => {
-          other.setAttribute('aria-pressed', String(other === chip));
-        });
-        update();
-      });
+    select.addEventListener('change', () => {
+      state.category = select.value;
+      showFilter();
+      update();
     });
 
+    clear.addEventListener('click', () => {
+      state.category = 'all';
+      showFilter();
+      update();
+      select.focus();
+    });
+
+    if (!data.categories.some((c) => c.id === state.category)) state.category = 'all';
+    showFilter();
     update();
   });
 }
@@ -93,10 +104,6 @@ function section(titleKey, text, { className = '', iconName = '' } = {}) {
     <h2 class="section-title">${iconName ? icon(iconName) : ''}${esc(t(titleKey))}</h2>
     <p>${esc(text)}</p>
   </section>`;
-}
-
-function favoriteButton(saved) {
-  return `${icon('heart', saved ? 'icon icon-filled' : 'icon')}<span>${esc(t(saved ? 'card.saved' : 'card.save'))}</span>`;
 }
 
 export function renderIngredient(main, { args }) {
@@ -128,9 +135,13 @@ export function renderIngredient(main, { args }) {
 
     main.innerHTML = `
       <header class="ingredient-header">
-        ${pageTitle(name)}
+        <div class="title-row">
+          ${pageTitle(name)}
+          ${heartButton(saved, t('card.favorite'))}
+        </div>
         ${ing.drug ? drugBadge() : ''}
         ${tags.length ? `<ul class="tags">${tags.map((tag) => `<li class="tag">${esc(tag)}</li>`).join('')}</ul>` : ''}
+        ${ing.drug ? '' : `<a class="btn btn-primary btn-block" href="#/compare?a=${encodeURIComponent(ing.id)}">${icon('blend')}${esc(t('card.compare'))}</a>`}
       </header>
 
       ${ing.notAcid ? `<div class="callout callout-highlight"><p>${esc(pick(ing.notAcid))}</p></div>` : ''}
@@ -158,21 +169,8 @@ export function renderIngredient(main, { args }) {
         <h2 class="section-title">${esc(t('card.sources'))}</h2>
         ${sourcesList(ing.sources)}
         ${pick(ing.latest) ? `<p class="latest"><strong>${esc(t('card.latest'))}:</strong> ${esc(pick(ing.latest))}</p>` : ''}
-      </section>
+      </section>`;
 
-      <div class="actions">
-        ${ing.drug ? '' : `<a class="btn btn-primary" href="#/compare?a=${encodeURIComponent(ing.id)}">${icon('blend')}${esc(t('card.compare'))}</a>`}
-        <button class="btn btn-secondary" type="button" id="favorite">${favoriteButton(saved)}</button>
-      </div>
-      <p class="visually-hidden" aria-live="polite" id="favorite-status"></p>`;
-
-    // Il testo del bottone cambia ("Salvato nei preferiti") e viene letto
-    // anche da chi usa un lettore di schermo.
-    const favorite = main.querySelector('#favorite');
-    favorite.addEventListener('click', () => {
-      const now = toggleFavoriteIngredient(ing.id);
-      favorite.innerHTML = favoriteButton(now);
-      main.querySelector('#favorite-status').textContent = t(now ? 'card.saved' : 'card.save');
-    });
+    bindHeart(main.querySelector('.heart-button'), () => toggleFavoriteIngredient(ing.id));
   });
 }

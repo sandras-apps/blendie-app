@@ -1,10 +1,11 @@
-// Carica data/data.json e offre la ricerca degli ingredienti.
-// (La logica del confronto arriva nel passo "Confronta e Risultato".)
+// Carica data/data.json, cerca gli ingredienti e confronta due ingredienti.
+import { pick } from './i18n.js';
 
 let loading = null;
 let data = null;
 const byId = new Map();
 const searchKeys = new Map(); // id → [{ norm, text }]
+const pairIndex = new Map(); // "idA|idB" (in ordine alfabetico) → voce di pairs
 
 // Toglie accenti, maiuscole e segni: "Acido ialurónico" → "acido ialuronico",
 // "alfa-idrossiacido" → "alfa idrossiacido".
@@ -36,7 +37,21 @@ function prepare(json) {
     }
     searchKeys.set(ing.id, keys);
   }
+  // Una voce di pairs vale per ogni combinazione tra un id di a e uno di b, in entrambi i sensi.
+  pairIndex.clear();
+  for (const pair of json.pairs) {
+    for (const a of pair.a) {
+      for (const b of pair.b) {
+        const key = pairKey(a, b);
+        if (!pairIndex.has(key)) pairIndex.set(key, pair);
+      }
+    }
+  }
   return json;
+}
+
+function pairKey(a, b) {
+  return [a, b].sort().join('|');
 }
 
 // Carica i dati una volta sola; se il caricamento fallisce, si può riprovare.
@@ -64,14 +79,49 @@ export function getIngredient(id) {
   return byId.get(id) || null;
 }
 
-// Cerca nel nome IT e EN, nei sinonimi e nei nomi INCI.
-// Restituisce null se l'ingrediente non corrisponde, altrimenti il testo
-// con cui è stato trovato (utile per mostrare "Anche: tocopherol").
-export function matchIngredient(ing, query) {
+// Cerca nel nome IT e EN, nei sinonimi e nei nomi INCI, senza distinguere
+// maiuscole, accenti e trattini. Per ogni ingrediente trovato restituisce:
+// - also: il sinonimo con cui è stato trovato, se non è il nome nella lingua scelta
+//   (per mostrare "Anche: tocopherol");
+// - score: quanto è vicino (0 = il nome inizia così, 1 = una parola inizia così, 2 = contiene).
+// Con la ricerca vuota restituisce tutti gli ingredienti.
+export function searchIngredients(query) {
   const q = normalize(query);
-  if (!q) return { text: null };
-  for (const key of searchKeys.get(ing.id) || []) {
-    if (key.norm.includes(q)) return { text: key.text };
+  const results = [];
+  for (const ing of data ? data.ingredients : []) {
+    const name = pick(ing.name);
+    if (!q) {
+      results.push({ ing, name, also: null, score: 0 });
+      continue;
+    }
+    const own = normalize(name);
+    if (own.includes(q)) {
+      results.push({ ing, name, also: null, score: own.startsWith(q) ? 0 : own.includes(` ${q}`) ? 1 : 2 });
+      continue;
+    }
+    let best = null;
+    for (const key of searchKeys.get(ing.id) || []) {
+      if (!key.norm.includes(q)) continue;
+      const score = key.norm.startsWith(q) || key.norm.includes(` ${q}`) ? 1 : 2;
+      if (!best || score < best.score) best = { text: key.text, score };
+    }
+    if (best) results.push({ ing, name, also: best.text, score: best.score });
   }
-  return null;
+  return results;
+}
+
+// Confronta due ingredienti, seguendo la logica del brief:
+// 1. stesso ingrediente → 'same' (non si confronta)
+// 2. almeno un farmaco → 'drug'
+// 3. coppia in pairs → il suo livello (green, yellow, red)
+// 4. altrimenti → 'unknown'
+export function comparePair(idA, idB) {
+  const a = getIngredient(idA);
+  const b = getIngredient(idB);
+  if (!a || !b) return null;
+  if (a.id === b.id) return { state: 'same', a, b };
+  if (a.drug || b.drug) return { state: 'drug', a, b, drugs: [a, b].filter((ing) => ing.drug) };
+  const pair = pairIndex.get(pairKey(a.id, b.id));
+  if (pair) return { state: pair.level, a, b, pair };
+  return { state: 'unknown', a, b };
 }

@@ -10,6 +10,11 @@ const paths = {
 
   // Navigazione
   plus: '<path d="M12 5v14"/><path d="M5 12h14"/>',
+  x: '<path d="M6.5 6.5l11 11"/><path d="M17.5 6.5l-11 11"/>',
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+  swap: '<path d="M8 4v15"/><path d="M4.5 7.5L8 4l3.5 3.5"/><path d="M16 20V5"/><path d="M12.5 16.5L16 20l3.5-3.5"/>',
+  restart: '<path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v4h4"/>',
   search: '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>',
   back: '<path d="M15 18l-6-6 6-6"/>',
   chevron: '<path d="M9 18l6-6-6-6"/>',
